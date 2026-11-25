@@ -1,0 +1,1632 @@
+backend:
+  name: github
+  repo: xxxx/xxxx
+  branch: main
+  base_url: https://xxxx
+  auth_endpoint: auth
+  commit_messages:
+    create: 'CMS: เพิ่ม {{collection}} "{{slug}}"'
+    update: 'CMS: อัปเดต {{collection}} "{{slug}}"'
+    delete: 'CMS: ลบ {{collection}} "{{slug}}"'
+    uploadMedia: 'CMS: อัปโหลดรูป/ไฟล์ "{{path}}"'
+    deleteMedia: 'CMS: ลบไฟล์ "{{path}}"'
+
+# โลโก้และชื่อระบบ CMS หลังบ้าน
+logo:
+  src: '/media/jina-logo-admin.png'
+logo_url: '/media/jina-logo-admin.png'
+app_title: 'JINA SERVICE PHUKET'
+
+media_folder: '02-astro-version/public/media'
+public_folder: '/media'
+
+# Uploads: phone photos are converted in the browser to WebP and scaled to max 1920px.
+# Rotation from the camera (EXIF) is baked into the pixels, so images never show sideways/upside down,
+# and a 4-5MB iPhone photo becomes ~200-400KB. File names are made URL-safe (no spaces).
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1920
+          height: 1920
+
+# Interface language
+locale: 'th'
+
+collections:
+  # =====================================================================
+  # 0. บทความ & สาระน่ารู้ (Blog Posts / Knowledge Base)
+  # =====================================================================
+  - name: 'home_sections'
+    label: '🧩 เปิด/ปิด & เรียงลำดับส่วนต่างๆ ของหน้าแรก'
+    description: 'ลากเพื่อสลับลำดับ ปิดสวิตช์เพื่อซ่อนส่วนนั้น (ส่วนหัวเว็บ/ภาพหลัก และท้ายเว็บ อยู่ตำแหน่งเดิมเสมอ)'
+    delete: false
+    files:
+      - name: 'home_sections_data'
+        label: 'ลำดับและการแสดงผลแต่ละส่วน'
+        file: '02-astro-version/src/data/homeSections.json'
+        fields:
+          - label: 'ส่วนต่างๆ (ลากเรียงลำดับได้)'
+            name: 'sections'
+            widget: 'list'
+            summary: '{{fields.id}} — {{fields.enabled}}'
+            fields:
+              - { label: 'ส่วน', name: 'id', widget: 'select', options: [{ label: 'แถบความน่าเชื่อถือ (ใต้ภาพหลัก)', value: 'proof' }, { label: 'บริการของเรา (Our Services)', value: 'services' }, { label: 'อุปกรณ์/เครื่องมือ', value: 'equipment' }, { label: 'แกลเลอรีผลงาน', value: 'gallery' }, { label: 'มาตรฐานการทำงาน', value: 'standards' }, { label: 'ใบอนุญาต & ความเชี่ยวชาญ', value: 'license' }, { label: 'อัตราค่าบริการ', value: 'pricing' }, { label: 'รีวิวลูกค้า', value: 'reviews' }, { label: 'แบนเนอร์สายด่วน 24 ชม.', value: 'hook' }, { label: 'พื้นที่บริการ 17 ตำบล', value: 'coverage' }, { label: 'ฟอร์มติดต่อ/ขอราคา', value: 'contact' }, { label: 'คำถามที่พบบ่อย', value: 'faq' }, { label: 'Facebook / โซเชียล', value: 'social' }] }
+              - { label: 'แสดงผล (ON = แสดง / OFF = ซ่อน)', name: 'enabled', widget: 'boolean', default: true }
+  - name: 'blog_page'
+    label: '📰 จัดการการ์ดหน้าบทความ (หัวข้อหน้า /blog/)'
+    description: 'ข้อความส่วนหัวของหน้ารวมบทความ และ SEO ของหน้านั้น'
+    delete: false
+    files:
+      - name: 'blog_page_data'
+        label: 'หัวข้อและคำอธิบายหน้ารวมบทความ'
+        file: '02-astro-version/src/data/blogPage.json'
+        fields:
+          - { label: 'ป้ายเล็กด้านบน', name: 'badge', widget: 'string' }
+          - { label: 'หัวข้อใหญ่ (ควรสั้น ให้อยู่บรรทัดเดียว)', name: 'title', widget: 'string' }
+          - { label: 'คำอธิบายใต้หัวข้อ', name: 'intro', widget: 'text' }
+          - { label: 'SEO: Title ของหน้า (แสดงบน Google)', name: 'seoTitle', widget: 'string' }
+          - { label: 'SEO: Description ของหน้า', name: 'seoDescription', widget: 'text' }
+  - name: 'blog'
+    label: 'บทความ & สาระน่ารู้ (Blog Posts)'
+    folder: '02-astro-version/src/content/blog'
+    create: true
+    slug: '{{slug}}'
+    summary: '{{title}} [{{pubDate}}] ({{published | ternary("เผยแพร่", "ฉบับร่าง")}})'
+    fields:
+      - { label: '🔘 สถานะเปิด/ปิดบทความ (Published)', name: 'published', widget: 'boolean', default: false, hint: 'ปิดไว้ (OFF / Draft) หากยังไม่ต้องการให้แสดงบนหน้าเว็บ หรือเปิด (ON) เมื่อพร้อมเผยแพร่' }
+      - { label: 'หัวข้อบทความ (Title)', name: 'title', widget: 'string' }
+      - { label: 'คำอธิบายย่อ (Description / SEO Meta)', name: 'description', widget: 'text' }
+      - { label: 'วันที่เผยแพร่ (Publish Date)', name: 'pubDate', widget: 'datetime', format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
+      - { label: 'หมวดหมู่บทความ (Category)', name: 'category', widget: 'select', default: 'ชักโครกตัน & ท่อตัน', options: ['ชักโครกตัน & ท่อตัน', 'การดูแลถังบำบัด', 'ถังดักไขมัน', 'ความรู้เรื่องสุขาภิบาล'] }
+      - { label: 'รูปภาพหน้าปกบทความ (Cover Image)', name: 'coverImage', widget: 'image', default: '/media/jina-standard-1.webp' }
+      - { label: 'คำอธิบายภาพหน้าปก (Alt Text สำหรับ SEO)', name: 'coverAlt', widget: 'string', default: 'ทีมช่างจินา เซอร์วิส ภูเก็ต' }
+      - { label: 'ผู้เขียนบทความ (Author)', name: 'author', widget: 'string', default: 'ทีมช่างเทคนิค จินา เซอร์วิส' }
+      - { label: 'ตำแหน่ง / ประสบการณ์ (Author Role / E-E-A-T)', name: 'authorRole', widget: 'string', default: 'ผู้เชี่ยวชาญงานระบบบำบัดและสุขาภิบาล ประสบการณ์ 30 ปี ภูเก็ต' }
+      - { label: 'วันที่แก้ไขล่าสุด (ใส่เมื่ออัปเดตเนื้อหา ช่วยเรื่องความสดใหม่ของ SEO)', name: 'updatedDate', widget: 'datetime', format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, required: false }
+      - { label: 'เนื้อหาบทความ (Markdown Body)', name: 'body', widget: 'markdown' }
+
+  # =====================================================================
+  # 1. ส่วนหัวเว็บ (Hero) — หน้าแรก ส่วนบนสุด
+  # =====================================================================
+  - name: 'hero_section'
+    label: '1. ส่วนหัวเว็บ & สไลด์ (Hero)'
+    description: 'แสดงที่ส่วนบนสุดของหน้าแรก: หัวข้อใหญ่ ปุ่มขอประเมินราคา ป้าย ✓ และภาพพื้นหลังที่เลื่อนอัตโนมัติ • ประวัติการแก้ไขทั้งหมด (ข้อมูลก่อนหน้า): https://github.com/xxxx/xxxx/commits/main/02-astro-version/src/data/hero.json'
+    delete: false
+    files:
+      - name: 'hero_data'
+        label: 'ข้อความและภาพสไลด์ Hero'
+        file: '02-astro-version/src/data/hero.json'
+        fields:
+          - label: 'ข้อความเล็กเหนือหัวข้อ (Eyebrow)'
+            name: 'eyebrow'
+            widget: 'object'
+            fields:
+              - { label: 'ไทย', name: 'th', widget: 'string' }
+              - { label: 'English', name: 'en', widget: 'string' }
+          - label: 'หัวข้อหลัก H1 (2 บรรทัด)'
+            name: 'heading'
+            widget: 'object'
+            hint: 'หัวข้อสำคัญที่สุดสำหรับ SEO ควรมีคำค้นหลัก เช่น ดูดส้วม ภูเก็ต'
+            fields:
+              - { label: 'บรรทัดที่ 1 (ไทย - สีขาว)', name: 'line1Th', widget: 'string' }
+              - { label: 'บรรทัดที่ 2 (ไทย - สีเขียว)', name: 'line2Th', widget: 'string' }
+              - { label: 'บรรทัดที่ 1 (English)', name: 'line1En', widget: 'string' }
+              - { label: 'บรรทัดที่ 2 (English)', name: 'line2En', widget: 'string' }
+          - label: 'คำอธิบายใต้หัวข้อ (Lead)'
+            name: 'lead'
+            widget: 'object'
+            fields:
+              - { label: 'ไทย', name: 'th', widget: 'text' }
+              - { label: 'English', name: 'en', widget: 'text' }
+          - label: 'ป้าย ✓ ความน่าเชื่อถือ (Trust Badges)'
+            name: 'badges'
+            widget: 'list'
+            summary: '{{fields.th}}'
+            fields:
+              - { label: 'ไทย', name: 'th', widget: 'string' }
+              - { label: 'English', name: 'en', widget: 'string' }
+          - label: '🖼️ ภาพพื้นหลังสไลด์ (ภาพแรก = ภาพที่ขึ้นก่อน)'
+            name: 'slides'
+            widget: 'list'
+            summary: '{{fields.name}}'
+            hint: 'ลากเพื่อสลับลำดับได้ ภาพแรกในรายการคือภาพที่แสดงก่อนและมีผลต่อความเร็วเว็บ ใช้ WebP กว้าง 1920px ขนาดไม่เกิน 250KB'
+            fields:
+              - { label: 'ชื่อเรียกภาพ (ใช้ในหลังบ้านเท่านั้น)', name: 'name', widget: 'string' }
+              - { label: 'ไฟล์รูปภาพ', name: 'image', widget: 'image' }
+              - { label: 'จุดโฟกัสแนวนอน (เช่น center, 50%, 67%)', name: 'position', widget: 'string', default: 'center', required: false }
+
+  # =====================================================================
+  # 2. บริการของเรา (Services)
+  # =====================================================================
+  - name: 'services_collection'
+    label: '2. บริการของเรา (Services)'
+    description: 'แสดงที่ส่วน "OUR SERVICES" ถัดจากแถบตัวเลขสถิติ: หัวข้อ คำอธิบาย และการ์ดบริการ • ประวัติการแก้ไขทั้งหมด (ข้อมูลก่อนหน้า): https://github.com/xxxx/xxxx/commits/main/02-astro-version/src/data/services.json'
+    delete: false
+    files:
+      - name: 'services_data'
+        label: 'หัวข้อและการ์ดบริการ'
+        file: '02-astro-version/src/data/services.json'
+        fields:
+          - { label: 'หัวข้อหลัก (ไทย)', name: 'headingTh', widget: 'string' }
+          - { label: 'หัวข้อหลัก (English) — ควรสั้นให้อยู่บรรทัดเดียว', name: 'headingEn', widget: 'string' }
+          - { label: 'คำอธิบายข้างหัวข้อ (ไทย)', name: 'leadTh', widget: 'text' }
+          - { label: 'คำอธิบายข้างหัวข้อ (English)', name: 'leadEn', widget: 'text' }
+          - label: 'การ์ดบริการ'
+            name: 'items'
+            widget: 'list'
+            summary: '{{fields.title}} — {{fields.price}}'
+            hint: 'ลากเพื่อสลับลำดับการ์ดได้'
+            fields:
+              - { label: 'ชื่อบริการ (ไทย)', name: 'title', widget: 'string' }
+              - { label: 'ชื่อบริการ (English)', name: 'titleEn', widget: 'string' }
+              - { label: 'คำอธิบาย (ไทย)', name: 'desc', widget: 'text' }
+              - { label: 'คำอธิบาย (English)', name: 'descEn', widget: 'text' }
+              - { label: 'ราคา (ไทย เช่น เริ่มต้น ฿1,xxx* หรือ ประเมินตามหน้างาน)', name: 'price', widget: 'string' }
+              - { label: 'ราคา (English เช่น Start ฿1,xxx* หรือ Site quotation)', name: 'priceEn', widget: 'string' }
+          - label: 'กล่องรับประกันใต้การ์ดบริการ (ปุ่มขอประเมินฟรี)'
+            name: 'promise'
+            widget: 'object'
+            collapsed: true
+            hint: 'กล่องที่อยู่ใต้การ์ดบริการ ปุ่มจะเปิดแชท Facebook Messenger'
+            fields:
+              - { label: 'แสดงกล่องนี้', name: 'enabled', widget: 'boolean', default: true }
+              - { label: 'หัวข้อ (ไทย)', name: 'titleTh', widget: 'string' }
+              - { label: 'หัวข้อ (English)', name: 'titleEn', widget: 'string' }
+              - { label: 'ข้อความรอง (ไทย)', name: 'textTh', widget: 'text', hint: 'กด Enter เพื่อขึ้นบรรทัดใหม่ได้' }
+              - { label: 'ข้อความรอง (English)', name: 'textEn', widget: 'text', hint: 'กด Enter เพื่อขึ้นบรรทัดใหม่ได้' }
+              - { label: 'ข้อความบนปุ่ม (ไทย)', name: 'buttonTh', widget: 'string' }
+              - { label: 'ข้อความบนปุ่ม (English)', name: 'buttonEn', widget: 'string' }
+
+  # =====================================================================
+  # 3. อุปกรณ์มาตรฐาน (Equipment)
+  # =====================================================================
+  - name: 'equipment_section'
+    label: '3. อุปกรณ์มาตรฐาน (Equipment)'
+    description: 'แสดงที่ส่วน "EQUIPMENT & SAFETY" ใต้การ์ดบริการ: หัวข้อ กล่อง ISO และการ์ด ✓ 4 ใบ • ประวัติการแก้ไขทั้งหมด (ข้อมูลก่อนหน้า): https://github.com/xxxx/xxxx/commits/main/02-astro-version/src/data/equipment.json'
+    delete: false
+    files:
+      - name: 'equipment_data'
+        label: 'ข้อความส่วนอุปกรณ์'
+        file: '02-astro-version/src/data/equipment.json'
+        fields:
+          - { label: 'หัวข้อ (ไทย)', name: 'headingTh', widget: 'string' }
+          - { label: 'หัวข้อ (English)', name: 'headingEn', widget: 'string' }
+          - { label: 'ข้อความในกล่อง ISO (ไทย)', name: 'isoNote', widget: 'text' }
+          - { label: 'ข้อความในกล่อง ISO (English)', name: 'isoNoteEn', widget: 'text' }
+          - label: 'การ์ดอุปกรณ์'
+            name: 'items'
+            widget: 'list'
+            summary: '{{fields.title}}'
+            fields:
+              - { label: 'หัวข้อ (ไทย)', name: 'title', widget: 'string' }
+              - { label: 'หัวข้อ (English)', name: 'titleEn', widget: 'string' }
+              - { label: 'คำอธิบาย (ไทย)', name: 'desc', widget: 'text' }
+              - { label: 'คำอธิบาย (English)', name: 'descEn', widget: 'text' }
+          - { label: 'หมายเหตุใต้การ์ด (ไทย)', name: 'footnote', widget: 'text' }
+          - { label: 'หมายเหตุใต้การ์ด (English)', name: 'footnoteEn', widget: 'text' }
+
+  # =====================================================================
+  # 4. แกลเลอรีภาพผลงาน (Gallery)
+  # =====================================================================
+  - name: 'gallery_collection'
+    label: '4. แกลเลอรีภาพผลงาน (Gallery)'
+    description: 'แสดงที่ส่วน "JINA SERVICE PORTFOLIO": ภาพสไลด์ แถบภาพย่อ และตัวกรองตามหมวด • ประวัติการแก้ไขทั้งหมด (ข้อมูลก่อนหน้า): https://github.com/xxxx/xxxx/commits/main/02-astro-version/src/data/gallery.json'
+    delete: false
+    files:
+      - name: 'gallery_items'
+        label: 'รายการภาพและวิดีโอ'
+        file: '02-astro-version/src/data/gallery.json'
+        fields:
+          - label: 'รายการแกลเลอรี'
+            name: 'items'
+            widget: 'list'
+            summary: '{{fields.th}} ({{fields.category}})'
+            hint: 'ลากเพื่อสลับลำดับได้ • ติ๊ก ⭐ ภาพแรก ที่รายการใดก็ได้ ภาพนั้นจะขึ้นเป็นภาพแรกของแกลเลอรีทันที (ถ้าติ๊กหลายภาพ จะเรียงตามลำดับในรายการ)'
+            fields:
+              - { label: '⭐ ตั้งเป็นภาพแรกของแกลเลอรี', name: 'featured', widget: 'boolean', default: false, required: false }
+              - label: 'หมวดหมู่ (ตรงกับปุ่มกรองบนหน้าเว็บ)'
+                name: 'category'
+                widget: 'select'
+                options:
+                  - { label: 'รูปรถและอุปกรณ์ (fleet)', value: 'fleet' }
+                  - { label: 'สูบสิ่งปฏิกูล & AirAsia (septic)', value: 'septic' }
+                  - { label: 'เทศกาลดนตรี EDC (edc)', value: 'edc' }
+                  - { label: 'ขุดลอกท่อ & บ่อน้ำเสีย (dredge)', value: 'dredge' }
+                  - { label: 'ติดตั้งถังบำบัด (tank)', value: 'tank' }
+                  - { label: 'คลิปวิดีโอ (video)', value: 'video' }
+              - label: 'ประเภทสื่อ'
+                name: 'type'
+                widget: 'select'
+                default: 'image'
+                options:
+                  - { label: 'รูปภาพ', value: 'image' }
+                  - { label: 'วิดีโอ (.webm / .mp4)', value: 'video' }
+              - { label: 'ไฟล์รูปภาพหรือวิดีโอ', name: 'src', widget: 'file' }
+              - { label: 'ภาพปกวิดีโอ (เฉพาะวิดีโอ ถ้าไม่ใส่จะใช้ชื่อไฟล์-poster.jpg)', name: 'poster', widget: 'image', required: false }
+              - { label: 'คำบรรยายภาพ (ไทย)', name: 'th', widget: 'string' }
+              - { label: 'คำบรรยายภาพ (English)', name: 'en', widget: 'string' }
+              - { label: 'Alt สำหรับ SEO (ไทย)', name: 'altTh', widget: 'string' }
+              - { label: 'Alt สำหรับ SEO (English)', name: 'altEn', widget: 'string' }
+
+  # =====================================================================
+  # 5. มาตรฐานการทำงาน (The JINA Standard)
+  # =====================================================================
+  - name: 'standards_section'
+    label: '5. มาตรฐานการทำงาน (JINA Standard)'
+    description: 'แสดงที่ส่วน "THE JINA STANDARD": ภาพสไลด์ซ้าย หัวข้อ 2 บรรทัด และขั้นตอน 01–04 • ประวัติการแก้ไขทั้งหมด (ข้อมูลก่อนหน้า): https://github.com/xxxx/xxxx/commits/main/02-astro-version/src/data/standards.json'
+    delete: false
+    files:
+      - name: 'standards_data'
+        label: 'ข้อความและภาพมาตรฐาน'
+        file: '02-astro-version/src/data/standards.json'
+        fields:
+          - { label: 'หัวข้อบรรทัด 1 (ไทย)', name: 'line1Th', widget: 'string' }
+          - { label: 'หัวข้อบรรทัด 1 (English)', name: 'line1En', widget: 'string' }
+          - { label: 'หัวข้อบรรทัด 2 (ไทย)', name: 'line2Th', widget: 'string' }
+          - { label: 'หัวข้อบรรทัด 2 (English)', name: 'line2En', widget: 'string' }
+          - { label: 'คำอธิบาย (ไทย)', name: 'leadTh', widget: 'text' }
+          - { label: 'คำอธิบาย (English)', name: 'leadEn', widget: 'text' }
+          - label: 'ขั้นตอนการทำงาน (01, 02, ... เรียงเลขให้อัตโนมัติ)'
+            name: 'items'
+            widget: 'list'
+            summary: '{{fields.title}}'
+            fields:
+              - { label: 'หัวข้อ (ไทย)', name: 'title', widget: 'string' }
+              - { label: 'หัวข้อ (English)', name: 'titleEn', widget: 'string' }
+              - { label: 'คำอธิบาย (ไทย)', name: 'desc', widget: 'string' }
+              - { label: 'คำอธิบาย (English)', name: 'descEn', widget: 'string' }
+          - label: 'ภาพสไลด์ด้านซ้าย'
+            name: 'images'
+            widget: 'list'
+            summary: '{{fields.alt}}'
+            fields:
+              - { label: 'ไฟล์รูปภาพ (แนวตั้ง)', name: 'image', widget: 'image' }
+              - { label: 'Alt สำหรับ SEO', name: 'alt', widget: 'string' }
+
+  # =====================================================================
+  # 6. ราคา (Pricing)
+  # =====================================================================
+  - name: 'pricing_collection'
+    label: '6. ราคา & แพ็กเกจ (Pricing)'
+    description: 'แสดงที่ส่วน "CLEAR STARTING POINTS": การ์ดราคา 3 ใบ และตารางแพ็กเกจ (ถ้าเปิดสวิตช์) • ประวัติการแก้ไขทั้งหมด (ข้อมูลก่อนหน้า): https://github.com/xxxx/xxxx/commits/main/02-astro-version/src/data/pricing.json'
+    delete: false
+    files:
+      - name: 'pricing_data'
+        label: 'การ์ดราคาและตารางแพ็กเกจ'
+        file: '02-astro-version/src/data/pricing.json'
+        fields:
+          - { label: 'หัวข้อหลัก (ไทย)', name: 'headingTh', widget: 'string' }
+          - { label: 'หัวข้อหลัก (English)', name: 'headingEn', widget: 'string' }
+          - { label: 'คำอธิบาย (ไทย)', name: 'leadTh', widget: 'text' }
+          - { label: 'คำอธิบาย (English)', name: 'leadEn', widget: 'text' }
+          - label: 'การ์ดราคา'
+            name: 'cards'
+            widget: 'list'
+            summary: '{{fields.title}} — {{fields.price}}'
+            fields:
+              - { label: 'ประเภทลูกค้า (ไทย)', name: 'title', widget: 'string' }
+              - { label: 'ประเภทลูกค้า (English)', name: 'titleEn', widget: 'string' }
+              - { label: 'ราคา (ไทย)', name: 'price', widget: 'string' }
+              - { label: 'ราคา (English)', name: 'priceEn', widget: 'string' }
+              - { label: 'รายละเอียดสั้น (ไทย)', name: 'desc', widget: 'string' }
+              - { label: 'รายละเอียดสั้น (English)', name: 'descEn', widget: 'string' }
+              - { label: '⭐ ไฮไลต์ + ป้าย "นิยม"', name: 'popular', widget: 'boolean', default: false, required: false }
+          - { label: 'หมายเหตุ * ใต้การ์ด (ไทย)', name: 'fineprint', widget: 'text' }
+          - { label: 'หมายเหตุ * ใต้การ์ด (English)', name: 'fineprintEn', widget: 'text' }
+          - label: '📦 ตารางราคาแพ็กเกจ & ต่องาน (Price Table & Packages)'
+            name: 'packagesSection'
+            widget: 'object'
+            fields:
+              - { label: '🔘 สวิตช์ เปิด/ปิด ตารางราคาบนหน้าเว็บ', name: 'enabled', widget: 'boolean', default: false, hint: 'หาก ปิด (OFF) ตารางนี้จะไม่แสดงบนหน้าเว็บจริง คุณสามารถกรอกราคาเตรียมไว้ก่อนได้ เมื่อพร้อมค่อยกด เปิด (ON)' }
+              - { label: 'หัวข้อตารางแพ็กเกจ', name: 'title', widget: 'string', default: 'แพ็กเกจราคาและบริการเหมาดูแล (Service Packages)' }
+              - { label: 'คำอธิบายใต้หัวข้อ', name: 'subtitle', widget: 'string', default: 'เลือกแพ็กเกจที่เหมาะกับประเภทอาคารของคุณ พร้อมการรับประกันและดูแลอย่างต่อเนื่อง' }
+              - label: 'รายการแพ็กเกจราคา (Packages List)'
+                name: 'packages'
+                widget: 'list'
+                collapsed: true
+                summary: '{{fields.name}} [{{fields.price}}]'
+                fields:
+                  - { label: 'ชื่อแพ็กเกจ', name: 'name', widget: 'string' }
+                  - { label: 'รูปภาพแพ็กเกจ', name: 'image', widget: 'image', required: false }
+                  - { label: 'ประเภทอาคาร (เช่น บ้านเดี่ยว ทาวน์เฮ้าส์)', name: 'category', widget: 'string', required: false }
+                  - { label: 'ป้ายมุมการ์ด (Badge)', name: 'badge', widget: 'string', required: false }
+                  - { label: 'คะแนนรีวิว (ใส่เฉพาะตัวเลขจริงจาก Google)', name: 'rating', widget: 'string', required: false }
+                  - { label: 'จำนวนรีวิว (ใส่เฉพาะตัวเลขจริง)', name: 'reviewCount', widget: 'string', required: false }
+                  - { label: 'ราคาแพ็กเกจ (เช่น เริ่มต้น ฿1,xxx หรือ ประเมินตามหน้างาน)', name: 'price', widget: 'string' }
+                  - { label: '⭐ ติดป้ายยอดนิยม (Popular Badge)', name: 'popular', widget: 'boolean', default: false }
+                  - { label: 'ข้อความบนปุ่ม (CTA Button)', name: 'ctaText', widget: 'string', default: 'ขอใบเสนอราคา' }
+                  - label: 'จุดเด่น/รายการที่รวมในแพ็กเกจ'
+                    name: 'features'
+                    widget: 'list'
+                    field: { label: 'รายการ', name: 'item', widget: 'string' }
+              - label: '📋 ตารางอัตราค่าบริการต่องาน (Per-Job Rates)'
+                name: 'perJobRates'
+                widget: 'list'
+                collapsed: true
+                summary: '{{fields.job}} [{{fields.rate}}]'
+                fields:
+                  - { label: 'ประเภทงานบริการ', name: 'job', widget: 'string' }
+                  - { label: 'รูปภาพ', name: 'image', widget: 'image', required: false }
+                  - { label: 'ป้าย (Badge)', name: 'badge', widget: 'string', required: false }
+                  - { label: 'อัตราค่าบริการ', name: 'rate', widget: 'string' }
+                  - { label: 'หน่วยคิดค่าบริการ (เช่น ต่อบ่อ, ต่อจุด, ต่อถัง)', name: 'unit', widget: 'string' }
+              - { label: 'หมายเหตุดอกจันใต้ตาราง', name: 'footnote', widget: 'text' }
+
+  # =====================================================================
+  # 3. แถบสายด่วนเร่งด่วน PUMP OUT (Urgent Hook)
+  # =====================================================================
+  - name: 'urgent_hook_collection'
+    label: '7. แถบสายด่วน PUMP OUT (Urgent Hook)'
+    delete: false
+    files:
+      - name: 'urgent_hook_data'
+        label: 'ข้อความแถบสายด่วนเร่งด่วน & คลื่นน้ำ PUMP OUT'
+        file: '02-astro-version/src/data/urgentHook.json'
+        fields:
+          - { label: 'สวิตช์ เปิด/ปิด แถบสายด่วนบนหน้าเว็บ', name: 'enabled', widget: 'boolean', default: true, hint: 'ปิด (OFF) = ซ่อนแถบสายด่วน PUMP OUT ทั้งแถบจากหน้าเว็บ  เปิด (ON) = แสดงตามปกติ' }
+          - { label: 'ข้อความแจ้งเตือนด้านบนสุด (ไทย)', name: 'kickerTh', widget: 'string' }
+          - { label: 'ข้อความแจ้งเตือนด้านบนสุด (English)', name: 'kickerEn', widget: 'string' }
+          - { label: '💧 ข้อความเอฟเฟกต์คลื่นน้ำ (ไทย)', name: 'pumpTextTh', widget: 'string' }
+          - { label: '💧 ข้อความเอฟเฟกต์คลื่นน้ำ (English)', name: 'pumpTextEn', widget: 'string' }
+          - { label: 'สโลแกนหลัก (ไทย) - ข้อความสีขาว', name: 'punchlineMainTh', widget: 'string' }
+          - { label: 'สโลแกนหลัก (English) - ข้อความสีขาว', name: 'punchlineMainEn', widget: 'string' }
+          - { label: 'จุดเน้นสโลแกน (ไทย) - ข้อความสีเขียว', name: 'punchlineAccentTh', widget: 'string' }
+          - { label: 'จุดเน้นสโลแกน (English) - ข้อความสีเขียว', name: 'punchlineAccentEn', widget: 'string' }
+          - { label: 'คำบรรยายทีมช่าง (ไทย)', name: 'subHookTh', widget: 'string' }
+          - { label: 'คำบรรยายทีมช่าง (English)', name: 'subHookEn', widget: 'string' }
+          - { label: 'เบอร์โทรศัพท์สายด่วน (เว้นว่าง = ใช้เบอร์หลักจาก ⚙️ ตั้งค่า)', name: 'phone', widget: 'string', required: false }
+          - { label: 'คำอธิบายใต้เบอร์โทรบนปุ่ม (ไทย)', name: 'phoneLabelTh', widget: 'string' }
+          - { label: 'คำอธิบายใต้เบอร์โทรบนปุ่ม (English)', name: 'phoneLabelEn', widget: 'string' }
+
+  # =====================================================================
+  # 8. คำถามที่พบบ่อย (FAQ)
+  # =====================================================================
+  - name: 'faqs_collection'
+    label: '8. คำถามที่พบบ่อย (FAQ)'
+    description: 'แสดงที่ส่วน "GOOD TO KNOW" ท้ายหน้าแรก (ข้อแรกจะเปิดค้างไว้) • ประวัติการแก้ไขทั้งหมด (ข้อมูลก่อนหน้า): https://github.com/xxxx/xxxx/commits/main/02-astro-version/src/data/faqs.json'
+    delete: false
+    files:
+      - name: 'faqs_data'
+        label: 'คำถาม-คำตอบ'
+        file: '02-astro-version/src/data/faqs.json'
+        fields:
+          - { label: 'หัวข้อ (ไทย)', name: 'headingTh', widget: 'string' }
+          - { label: 'หัวข้อ (English)', name: 'headingEn', widget: 'string' }
+          - label: 'รายการคำถาม'
+            name: 'items'
+            widget: 'list'
+            summary: '{{fields.qTh}}'
+            fields:
+              - { label: 'คำถาม (ไทย)', name: 'qTh', widget: 'string' }
+              - { label: 'คำถาม (English)', name: 'qEn', widget: 'string' }
+              - { label: 'คำตอบ (ไทย)', name: 'aTh', widget: 'text' }
+              - { label: 'คำตอบ (English)', name: 'aEn', widget: 'text' }
+
+  # =====================================================================
+  # 9. ส่วนท้ายเว็บ (Footer)
+  # =====================================================================
+  - name: 'footer_collection'
+    label: '9. ส่วนท้ายเว็บ (Footer)'
+    delete: false
+    files:
+      - name: 'footer_data'
+        label: 'ข้อมูลส่วนท้ายเว็บ (Footer)'
+        file: '02-astro-version/src/data/footer.json'
+        fields:
+          - { label: 'ข้อความหน้าเลขทะเบียน', name: 'registrationLabel', widget: 'string', hint: 'ชื่อบริษัทและเลขทะเบียนดึงมาจาก ⚙️ ตั้งค่า > ข้อมูลติดต่อ & บริษัท' }
+          - label: 'คอลัมน์ลิงก์'
+            name: 'columns'
+            widget: 'list'
+            collapsed: true
+            summary: '{{fields.title}}'
+            fields:
+              - { label: 'หัวข้อคอลัมน์', name: 'title', widget: 'string' }
+              - label: 'ลิงก์ในคอลัมน์'
+                name: 'links'
+                widget: 'list'
+                collapsed: true
+                summary: '{{fields.text}}'
+                fields:
+                  - { label: 'ข้อความ (ไทย)', name: 'text', widget: 'string' }
+                  - { label: 'ข้อความ (English) - เว้นว่างได้', name: 'textEn', widget: 'string', required: false }
+                  - { label: 'ลิงก์ไปที่', name: 'url', widget: 'string', hint: 'ส่วนในหน้าเว็บ เช่น #services #coverage  |  โทร tel:+66954241968  |  อีเมล mailto:ชื่อ@gmail.com  |  เว็บอื่น https://...' }
+          - { label: 'หัวข้อคอลัมน์ติดต่อ', name: 'contactTitle', widget: 'string', hint: 'เบอร์ LINE อีเมล Facebook ในคอลัมน์นี้ดึงมาจาก ⚙️ ตั้งค่า > ข้อมูลติดต่อ & บริษัท อัตโนมัติ' }
+
+  # =====================================================================
+  # 10. ข้อความขึ้นต้นหมวดย่อย(Outline)
+  # =====================================================================
+  - name: 'page_text_collection'
+    label: '10.ข้อความขึ้นต้นหมวดย่อย(Outline)'
+    description: 'ข้อความเล็กๆ ทั่วหน้าแรก แยกตามส่วนของหน้า: เมนู ป้ายหัวข้อ ปุ่ม รีวิว พื้นที่บริการ ฟอร์ม Facebook ฯลฯ • แต่ละข้อความมีช่องไทยและ English (เว้น English ว่าง = ปุ่ม EN จะแสดงภาษาไทย) • ชื่อช่องคือข้อความเดิมตอนสร้าง'
+    delete: false
+    files:
+      - name: 'page_text'
+        label: 'ข้อความทั่วทั้งหน้าเว็บ'
+        file: '02-astro-version/src/data/pageText.json'
+        fields:
+          - label: 'แถบตัวเลขสถิติ (ใต้ภาพหลัก)'
+            name: 'stats'
+            widget: 'list'
+            summary: '{{fields.value}}{{fields.suffix}} — {{fields.th}}'
+            hint: 'ตัวเลขจะวิ่งนับขึ้นจาก 0 ไปถึงค่านี้ ลากเพื่อสลับลำดับได้'
+            fields:
+              - { label: 'ตัวเลข', name: 'value', widget: 'number', value_type: 'int' }
+              - { label: 'ต่อท้ายตัวเลข (เช่น + หรือ % หรือ /7 เว้นว่างได้)', name: 'suffix', widget: 'string', required: false }
+              - { label: 'คำอธิบาย (ไทย)', name: 'th', widget: 'string' }
+              - { label: 'คำอธิบาย (English)', name: 'en', widget: 'string', required: false }
+          - label: 'เมนูด้านบน (คอม) และปุ่มบนสุด'
+            name: 'nav'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'บริการ'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'แกลเลอรี'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'มาตรฐาน'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ราคา'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'พื้นที่บริการ'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'บทความ'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'คำถามพบบ่อย'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ปรึกษาฟรี'
+                name: 't08'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'เมนูมือถือ (ปุ่ม ☰)'
+            name: 'mobileNav'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'บริการของเรา'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ภาพผลงานจริง'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'มาตรฐานการทำงาน'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อัตราค่าบริการ'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'พื้นที่บริการ 17 ตำบล'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สาระน่ารู้ & บทความ'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'คำถามที่พบบ่อย'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนบนสุด (Hero)'
+            name: 'hero'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'ขอประเมินราคาฟรี'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนบริการ'
+            name: 'services'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'OUR SERVICES'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ราคา'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ปรึกษาฟรี →'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนอุปกรณ์'
+            name: 'equipment'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'EQUIPMENT & SAFETY'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนแกลเลอรี'
+            name: 'gallery'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'JINA SERVICE PORTFOLIO'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'รวมภาพ จินาเซอร์วิส ภูเก็ต'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ประมวลภาพงานปฏิบัติการจริงทั่วภูเก็ต ทั้งบ้าน…'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'ทั้งหมด'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'รูปรถและอุปกรณ์'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สูบสิ่งปฏิกูล & AirAsia'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เทศกาลดนตรี EDC'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ขุดลอกท่อ & บ่อน้ำเสีย'
+                name: 't08'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ติดตั้งถังบำบัด'
+                name: 't09'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'คลิปวิดีโอ (VDO)'
+                name: 't10'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ภาพที่'
+                name: 't11'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'จาก'
+                name: 't12'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สไลด์โชว์'
+                name: 't13'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตารางภาพทั้งหมด'
+                name: 't14'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '🔍 ขยายเต็มจอ'
+                name: 't15'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ขยายเต็มจอ'
+                name: 't16'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '💡 คลิกที่ภาพหรือวิดีโอเพื่อเปิดดูขนาดใหญ่แบบ…'
+                name: 't17'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนมาตรฐาน'
+            name: 'standards'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'THE JINA STANDARD'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนความเชี่ยวชาญ 30 ปี'
+            name: 'expertise'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: '30 YEARS OF SANITATION EXPERIENCE'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เชี่ยวชาญงานสูบสิ่งปฏิกูล'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'และระบบบำบัดน้ำเสียครบวงจร'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ห้างหุ้นส่วนจำกัด จินา เซอร์วิส มีประสบการณ์ด…'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'รับบริการสำหรับบ้าน คอนโด แมนชั่น อพาร์ทเม้นท…'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: '(เอกสารจดทะเบียน)'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'บ้าน'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'คอนโด'
+                name: 't08'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'แมนชั่น'
+                name: 't09'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อพาร์ทเม้นท์'
+                name: 't10'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'โรงเรียน'
+                name: 't11'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'โรงแรม'
+                name: 't12'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ร้านอาหาร'
+                name: 't13'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ร้านค้า'
+                name: 't14'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ออฟฟิศ'
+                name: 't15'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อาคารสำนักงาน'
+                name: 't16'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'บริการดูแลถังบำบัดครบวงจร'
+                name: 't17'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'จินา เซอร์วิส ให้บริการทำความสะอาดและสูบถังบำ…'
+                name: 't18'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'ทำความสะอาดและสูบถังบำบัด'
+                name: 't19'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ทำความสะอาดหรือติดตั้งถังดักไขมัน'
+                name: 't20'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'แก้ไขท่อระบายน้ำอุดตัน'
+                name: 't21'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ซ่อมและติดตั้งอะไหล่สุขภัณฑ์'
+                name: 't22'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'รับประกันตามประเภทงาน 1–12 เดือน โดยแจ้งเงื่อ…'
+                name: 't23'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'บริการเกี่ยวกับระบบบำบัดและสุขาภิบาล'
+                name: 't24'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สูบส้วม น้ำเสีย ไขมัน และสิ่งปฏิกูลทุกประเภท'
+                name: 't25'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'แก้ท่อตันด้วยงูเหล็ก: ชักโครก ท่อพื้นห้องน้ำ …'
+                name: 't26'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ขุดลอกท่อระบายน้ำ และล้างทำความสะอาดถังเก็บน้…'
+                name: 't27'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'วางระบบถังบำบัด บ่อเกรอะ วางหรือย้ายระบบท่อน้…'
+                name: 't28'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ติดตั้งสุขภัณฑ์และท่อระบายน้ำพื้น Floor Drain'
+                name: 't29'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เวลาทำการ 09.00–18.00 น.'
+                name: 't30'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'งานช่วงกลางคืนกรุณานัดหมายล่วงหน้า'
+                name: 't31'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ทุกปัญหาเรื่องส้วมที่กวนใจ แก้ได้ครบ จบ เพียง…'
+                name: 't32'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนราคา'
+            name: 'pricing'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'CLEAR STARTING POINTS'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'นิยม'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ขอราคาหน้างาน →'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนรีวิวลูกค้า'
+            name: 'reviews'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'CUSTOMER STORIES & GOOGLE REVIEWS'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ประสบการณ์จากลูกค้าของเรา'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ดูรีวิวบน Google Maps'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ประสบการณ์ลูกค้า'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '“นัดเช้า ทีมมาตรงเวลา อธิบายก่อนทำ และเก็บพื้…'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ลูกค้าบ้านพัก • ฉลอง'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'Google Maps'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '“จัดรอบดูแลบ่อดักไขมันให้ครัวได้ชัดเจน ลดปัญห…'
+                name: 't08'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ผู้จัดการร้านอาหาร • ป่าตอง'
+                name: 't09'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '“ติดต่อสะดวก ส่งตำแหน่งแล้วประเมินเบื้องต้นได…'
+                name: 't10'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'ผู้ดูแลอาคาร • เมืองภูเก็ต'
+                name: 't11'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'แสดงทั้งประสบการณ์ที่ลูกค้าแบ่งปันกับเราและรี…'
+                name: 't12'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+          - label: 'ส่วนพื้นที่บริการ'
+            name: 'coverage'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'SERVICE COVERAGE'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'พื้นที่ให้บริการในภูเก็ต'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ให้บริการครบทั้ง 17 ตำบล ในอำเภอเมืองภูเก็ต อ…'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'อำเภอเมืองภูเก็ต'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลตลาดใหญ่ • ตำบลตลาดเหนือ • ตำบลเกาะแก้ว •…'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'อำเภอกะทู้'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลกะทู้ • ตำบลป่าตอง • ตำบลกมลา'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อำเภอถลาง'
+                name: 't08'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลเทพกระษัตรี • ตำบลศรีสุนทร • ตำบลเชิงทะเล…'
+                name: 't09'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'สถานที่ตั้งจริงบน Google Maps'
+                name: 't10'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สูบส้วม ท่อตัน เรียกใช้มือโปร จินาเซอร์วิส'
+                name: 't11'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เปิดสถานที่จริงใน Google Maps →'
+                name: 't12'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนติดต่อและฟอร์ม'
+            name: 'contact'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'REQUEST A CALLBACK'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'บอกหน้างานคร่าวๆ'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ให้เราช่วยประเมิน'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ประเมินราคาฟรี ไม่มีค่าใช้จ่ายแอบแฝง — ทีมช่า…'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'หากมีรูปทางเข้ารถ จุดเปิดบ่อ หรือท่อที่มีปัญห…'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'LINE • JINA SERVICE'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'f • Facebook / jinaservice'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สแกนเพิ่มเพื่อน LINE'
+                name: 't08'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ส่งรูปหน้างานให้เราประเมินได้รวดเร็วขึ้น'
+                name: 't09'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ชื่อ–นามสกุล'
+                name: 't10'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ชื่อผู้ติดต่อ'
+                name: 't11'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เบอร์โทรศัพท์'
+                name: 't12'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'LINE ID หรือ Facebook (ถ้ามี)'
+                name: 't13'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เช่น @lineid, 0954241968 หรือชื่อ Facebook'
+                name: 't14'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ประเภทสถานที่'
+                name: 't15'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'บ้านพักอาศัย'
+                name: 't16'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สำนักงาน / ร้านค้า'
+                name: 't17'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'โรงแรม / รีสอร์ต'
+                name: 't18'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'โรงเรียน / องค์กร'
+                name: 't19'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'พื้นที่ / ตำบลในภูเก็ต'
+                name: 't20'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เลือกตำบลในภูเก็ต'
+                name: 't21'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อำเภอเมืองภูเก็ต'
+                name: 't22'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลตลาดใหญ่'
+                name: 't23'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลตลาดเหนือ'
+                name: 't24'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลเกาะแก้ว'
+                name: 't25'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลรัษฎา'
+                name: 't26'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลวิชิต'
+                name: 't27'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลฉลอง'
+                name: 't28'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลราไวย์'
+                name: 't29'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลกะรน'
+                name: 't30'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อำเภอกะทู้'
+                name: 't31'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลกะทู้'
+                name: 't32'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลป่าตอง'
+                name: 't33'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลกมลา'
+                name: 't34'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อำเภอถลาง'
+                name: 't35'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลเทพกระษัตรี'
+                name: 't36'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลศรีสุนทร'
+                name: 't37'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลเชิงทะเล'
+                name: 't38'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลป่าคลอก'
+                name: 't39'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลไม้ขาว'
+                name: 't40'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ตำบลสาคู'
+                name: 't41'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ขนาดบ่อ (ถ้าทราบ)'
+                name: 't42'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'พิมพ์หรือเลือก (เช่น ไม่ทราบ)'
+                name: 't43'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'รายละเอียดเพิ่มเติม'
+                name: 't44'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อาการที่พบ เวลาที่สะดวก หรือข้อมูลทางเข้ารถ'
+                name: 't45'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สนใจสมัครสมาชิก และยินยอมให้ JINA SERVICE ใช้…'
+                name: 't46'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'หากเลือกสมัคร กรุณากรอกชื่อและเบอร์โทรให้ครบ'
+                name: 't47'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ส่งข้อมูลให้ทีมประเมินฟรี →'
+                name: 't48'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนคำถามพบบ่อย'
+            name: 'faq'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'GOOD TO KNOW'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วน Facebook'
+            name: 'facebook'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'FACEBOOK UPDATES'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'อัปเดตงานจริงสดจากหน้าเพจ Facebook'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ติดตามผลงานสูบส้วม ล้างบ่อเกรอะ ทะลวงท่อตัน แ…'
+                name: 't03'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: 'กดติดตามเพจ @jinaservice'
+                name: 't04'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ดูรีวิวงานจริง 24 ชม. • สิทธิ์คิวด่วน'
+                name: 't05'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'กดติดตาม'
+                name: 't06'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เปิดหน้าเพจ Facebook ทางการ →'
+                name: 't07'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ข้อมูลและโพสต์ทั้งหมดซิงค์จากเพจทางการ JINA S…'
+                name: 't08'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ดูดส้วม ท่อตัน ภูเก็ต จินาเซอร์วิส'
+                name: 't09'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '@jinaservice • ผู้ติดตาม 611+ คน •'
+                name: 't10'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เปิด 24 ชม.'
+                name: 't11'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '+ ติดตาม'
+                name: 't12'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ฟีดผลงานจริงล่าสุด'
+                name: 't13'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '2 โพสต์ล่าสุด'
+                name: 't14'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'เปิดดูบน Facebook ↗'
+                name: 't15'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '🗓️ 2 พฤศจิกายน เวลา 11:44 น. • ภูเก็ต 🌐'
+                name: 't16'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'สวัสดีวันจันทร์ 🚛 หจก. จินา เซอร์วิส ยินดีให…'
+                name: 't17'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: '👍 ❤️ 142 คนถูกใจ • 18 ความคิดเห็น'
+                name: 't18'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ดูโพสต์นี้ ↗'
+                name: 't19'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: '🗓️ 31 ตุลาคม เวลา 11:16 น. • ภูเก็ต 🌐'
+                name: 't20'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'ไซต์งานวันนี้ ฝนไม่ตกแล้วเรียกใช้ได้เลยค่ะ 👍…'
+                name: 't21'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'text' }
+                  - { label: 'English', name: 'en', widget: 'text', required: false }
+              - label: '👍 ❤️ 98 คนถูกใจ • 12 ความคิดเห็น'
+                name: 't22'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+          - label: 'ส่วนท้าย (Footer)'
+            name: 'footer'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - label: 'ทักหาเราเลย LINE'
+                name: 't01'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+              - label: 'Facebook'
+                name: 't02'
+                widget: 'object'
+                fields:
+                  - { label: 'ไทย', name: 'th', widget: 'string' }
+                  - { label: 'English', name: 'en', widget: 'string', required: false }
+
+  # =====================================================================
+  # 9. การตั้งค่าทั่วไป: SEO, Tracking, โลโก้, ข้อมูลติดต่อ, Schema
+  # =====================================================================
+  - name: 'site_settings'
+    label: '⚙️ ตั้งค่าเว็บไซต์, SEO & ติดต่อ'
+    delete: false
+    files:
+      - name: 'general_settings'
+        label: 'ข้อมูลเว็บไซต์, SEO, โลโก้, Tracking'
+        file: '02-astro-version/src/data/settings.json'
+        fields:
+          - { label: 'สวิตช์ เปิด/ปิด หน้าบทความ (Blog) ทั้งหมด', name: 'blogEnabled', widget: 'boolean', default: true, hint: 'ปิด (OFF) = ซ่อนเมนูบทความ หน้า /blog/ และบทความทุกเรื่องจากเว็บไซต์ (บทความที่เขียนไว้ยังอยู่ครบในหลังบ้าน)  เปิด (ON) = แสดงเฉพาะบทความที่เปิดสถานะ Published' }
+          - { label: '🏷️ หัวข้อหน้าเว็บหลัก (Meta Title)', name: 'siteTitle', widget: 'string', hint: 'ควรยาว 50–60 ตัวอักษร ขึ้นต้นด้วยคำค้นหลัก' }
+          - { label: '🏷️ คำอธิบายเว็บไซต์ (Meta Description)', name: 'siteDescription', widget: 'text', hint: 'ควรยาว 120–160 ตัวอักษร' }
+          - { label: '🏷️ โดเมนหลักของเว็บ (Canonical URL)', name: 'canonicalUrl', widget: 'string', hint: 'เปลี่ยนที่นี่ที่เดียวเมื่อได้โดเมนจริง เช่น https://jinaservicephuket.com/ แล้วทั้ง canonical, sitemap, robots, schema และ llms.txt จะเปลี่ยนตามอัตโนมัติ' }
+
+          # หมวดที่ 2: โลโก้ และ อัตลักษณ์แบรนด์
+          - label: 'โลโก้ (ตัวอักษร) ด้านบนและ Footer ทุกหน้า'
+            name: 'logo'
+            widget: 'object'
+            hint: 'โลโก้เป็นตัวอักษร 2 บรรทัด: ตัวใหญ่ด้านบน และบรรทัดเล็กด้านล่าง (คำสุดท้ายเป็นสีเขียว)'
+            fields:
+              - { label: 'ตัวใหญ่ (เช่น JINA)', name: 'wordmark', widget: 'string' }
+              - { label: 'บรรทัดเล็ก ส่วนแรก (เช่น SERVICE)', name: 'line', widget: 'string' }
+              - { label: 'บรรทัดเล็ก คำสีเขียว (เช่น PHUKET)', name: 'highlight', widget: 'string' }
+          - label: 'ข้อมูลติดต่อ (แก้ที่นี่ที่เดียว เปลี่ยนทั้งเว็บ)'
+            name: 'contact'
+            widget: 'object'
+            collapsed: true
+            hint: 'ใช้กับปุ่มโทร แถบสายด่วน footer หน้าบทความ ข้อมูลที่ Google อ่าน (schema) และ llms.txt'
+            fields:
+              - { label: 'เบอร์หลัก (รูปแบบ 095-424-1968)', name: 'phoneDisplay', widget: 'string' }
+              - { label: 'ชื่อผู้รับสายเบอร์หลัก (ไทย)', name: 'phoneName', widget: 'string' }
+              - { label: 'ชื่อผู้รับสายเบอร์หลัก (English)', name: 'phoneNameEn', widget: 'string' }
+              - { label: 'เบอร์ที่ 2 (รูปแบบ 093-463-2466)', name: 'phoneSecondary', widget: 'string' }
+              - { label: 'ชื่อผู้รับสายเบอร์ที่ 2 (ไทย)', name: 'phoneSecondaryName', widget: 'string' }
+              - { label: 'ชื่อผู้รับสายเบอร์ที่ 2 (English)', name: 'phoneSecondaryNameEn', widget: 'string' }
+              - { label: 'อีเมล', name: 'email', widget: 'string' }
+              - { label: 'ลิงก์ LINE (https://line.me/...)', name: 'lineUrl', widget: 'string' }
+              - { label: 'ลิงก์ Facebook Page', name: 'facebookUrl', widget: 'string' }
+              - { label: 'ลิงก์ Google Maps', name: 'googleMapsUrl', widget: 'string' }
+          - label: 'ข้อมูลบริษัท (ใช้ใน footer และข้อมูลที่ Google อ่าน)'
+            name: 'schema'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - { label: 'ชื่อนิติบุคคล', name: 'legalName', widget: 'string' }
+              - { label: 'เลขทะเบียนนิติบุคคล', name: 'taxID', widget: 'string' }
+              - { label: 'คะแนนรีวิว Google (เช่น 4.9)', name: 'ratingValue', widget: 'string' }
+              - { label: 'จำนวนรีวิว Google', name: 'reviewCount', widget: 'string' }
+              - { label: 'ละติจูด', name: 'geoLat', widget: 'number', value_type: 'float' }
+              - { label: 'ลองจิจูด', name: 'geoLng', widget: 'number', value_type: 'float' }
+
+          - label: '🎨 ไอคอนเว็บ & ภาพตอนแชร์ลิงก์ (Favicon / OG Image)'
+            name: 'branding'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - { label: 'ภาพแสดงเวลาแชร์ Facebook/LINE (OG Image)', name: 'ogImage', widget: 'image' }
+              - { label: 'ไอคอน Favicon Light (.ico)', name: 'faviconLight', widget: 'file', required: false }
+              - { label: 'ไอคอน Favicon Dark (.ico)', name: 'faviconDark', widget: 'file', required: false }
+              - { label: 'ไอคอน Apple Touch (.png)', name: 'appleTouchIcon', widget: 'image', required: false }
+
+          # หมวดที่ 3: โค้ด Tracking & การตลาด
+          - label: '📊 Tracking & Analytics (GTM, GA4, Meta Pixel)'
+            name: 'tracking'
+            widget: 'object'
+            collapsed: true
+            fields:
+              - { label: 'รหัส Google Tag Manager (GTM ID เช่น GTM-XXXXXXX)', name: 'gtmId', widget: 'string', required: false }
+              - { label: 'Sentry Public Key (ตัวอักษรหน้า @ ใน DSN, ใช้จับ error ของเว็บ เว้นว่าง = ปิด)', name: 'sentryKey', widget: 'string', required: false }
+              - { label: 'รหัส Google Analytics 4 (GA4 ID เช่น G-XXXXXXXXXX)', name: 'ga4Id', widget: 'string', required: false }
+              - { label: 'รหัส Meta Pixel (Facebook Pixel ID เช่น 1234567890)', name: 'metaPixelId', widget: 'string', required: false }
+              - { label: 'โค้ด HTML/JS เพิ่มเติมใน <head>', name: 'customHeadScript', widget: 'code', default_language: 'html', required: false }
+              - { label: 'โค้ด HTML/JS เพิ่มเติมใน <body>', name: 'customBodyScript', widget: 'code', default_language: 'html', required: false }

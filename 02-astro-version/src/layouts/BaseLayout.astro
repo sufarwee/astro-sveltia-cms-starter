@@ -1,0 +1,173 @@
+---
+import siteSettings from "../data/settings.json";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogTitle?: string;
+  ogType?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = siteSettings.siteTitle,
+  description = siteSettings.siteDescription,
+  canonical,
+  ogImage: customOgImage,
+  ogTitle: customOgTitle,
+  ogType = "website",
+  noindex = false,
+} = Astro.props;
+// Public domain comes from settings.json -> canonicalUrl (one place to change when the real domain arrives)
+const SITE = new URL(siteSettings.canonicalUrl).origin;
+const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE).href;
+
+// "xxxx" is an unfilled placeholder, so that service stays off
+const tracking = Object.fromEntries(Object.entries(siteSettings.tracking || {}).filter(([, v]) => v !== "xxxx"));
+const branding = siteSettings.branding || {};
+const rawOgImage = customOgImage || branding.ogImage || "/jina-best-service-septic-tank-cleaning-phuket.webp";
+const ogImage = new URL(rawOgImage, SITE).href;
+const socialTitle = customOgTitle || title;
+---
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- LCP preloads go first: the inlined CSS below is ~230 KB, and a preload after it is discovered late -->
+    <slot name="preload" />
+    {tracking.gtmId && (
+      <!-- Google Tag Manager -->
+      <script is:inline define:vars={{ gtmId: tracking.gtmId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});
+        // GTM (+ GA4/Clarity it loads) starts on the first scroll/touch/key/mouse move, or 5s after load,
+        // so its CPU work and Clarity's cookies stay out of the first-load (PageSpeed) window
+        var done=0,ev=['scroll','pointerdown','touchstart','keydown','mousemove'],load=function(){if(done)return;done=1;
+        ev.forEach(function(e){w.removeEventListener(e,load,true)});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);};
+        ev.forEach(function(e){w.addEventListener(e,load,{capture:true,passive:true})});
+        var later=function(){setTimeout(load,5000)};
+        if(d.readyState==='complete')later();else w.addEventListener('load',later,{once:true});
+        })(window,document,'script','dataLayer',gtmId);
+      </script>
+      <!-- End Google Tag Manager -->
+    )}
+    {tracking.sentryKey && (
+      <!-- Sentry loader (errors only; it lazy-loads the SDK on the first error). Added after window load so it stays out of first-load metrics. -->
+      <script is:inline define:vars={{ sentryKey: tracking.sentryKey }}>
+        addEventListener('load',function(){var j=document.createElement('script');j.src='https://js.sentry-cdn.com/'+sentryKey+'.min.js';j.crossOrigin='anonymous';document.head.appendChild(j)},{once:true});
+      </script>
+    )}
+
+    {tracking.ga4Id && (
+      <!-- Google Analytics (GA4) -->
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${tracking.ga4Id}`}></script>
+      <script is:inline define:vars={{ ga4Id: tracking.ga4Id }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', ga4Id);
+      </script>
+    )}
+
+    {tracking.metaPixelId && (
+      <!-- Meta Pixel Code -->
+      <script is:inline define:vars={{ pixelId: tracking.metaPixelId }}>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', pixelId);
+        fbq('track', 'PageView');
+      </script>
+    )}
+
+    {tracking.customHeadScript && (
+      <Fragment set:html={tracking.customHeadScript} />
+    )}
+
+    <meta name="msvalidate.01" content="xxxx" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="JINA SERVICE ภูเก็ต" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
+    <meta property="og:image:alt" content="JINA SERVICE บริการดูดส้วม สูบส้วม และแก้ท่อตันทั่วภูเก็ต 24 ชม." />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href={branding.faviconDark || "/favicon-dark.ico"} />
+    <link rel="icon" href={branding.faviconDark || "/favicon-dark.ico"} media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href={branding.faviconLight || "/favicon-light.ico"} media="(prefers-color-scheme: light)" />
+    <link rel="apple-touch-icon" sizes="180x180" href={branding.appleTouchIcon || "/apple-touch-icon.png"} />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Canonical & Alternates -->
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Sarabun loads without blocking first paint (essential weights 400, 600, 700 without unused italics) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" /></noscript>
+
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="/assets/index-FqyfiCCc.css" />
+    <link rel="stylesheet" href="/gray-green.css?v=20261116-v43" />
+    <slot name="head" />
+  </head>
+  <body>
+    {tracking.gtmId && (
+      <!-- Google Tag Manager (noscript) -->
+      <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${tracking.gtmId}`}
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    )}
+
+    {tracking.metaPixelId && (
+      <!-- Meta Pixel (noscript) -->
+      <noscript>
+        <img height="1" width="1" style="display:none"
+        src={`https://www.facebook.com/tr?id=${tracking.metaPixelId}&ev=PageView&noscript=1`} />
+      </noscript>
+    )}
+
+    {tracking.customBodyScript && (
+      <Fragment set:html={tracking.customBodyScript} />
+    )}
+
+    <slot />
+  </body>
+</html>

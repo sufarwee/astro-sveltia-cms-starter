@@ -1,0 +1,51 @@
+{
+  "siteTitle": "ดูดส้วม สูบส้วม ภูเก็ต 24 ชม. แก้ท่อตัน | JINA SERVICE",
+  "siteDescription": "JINA SERVICE ดูดส้วม สูบส้วม แก้ท่อตัน ล้างถังดักไขมันทั่วภูเก็ต 17 ตำบล 24 ชม. ทีมช่างมืออาชีพ ประสบการณ์ 30 ปี ปรึกษาฟรี โทร 095-424-1968",
+  "canonicalUrl": "https://jinaservicephuket.com/",
+  "blogEnabled": true,
+  "branding": {
+    "logoLight": "/media/jina-logo-light.svg",
+    "logoLightWebp": "/media/jina-logo-light.webp",
+    "logoDark": "/media/jina-logo-dark.svg",
+    "logoDarkWebp": "/media/jina-logo-dark.webp",
+    "faviconLight": "/favicon-light.ico",
+    "faviconDark": "/favicon-dark.ico",
+    "appleTouchIcon": "/apple-touch-icon.png",
+    "ogImage": "/jina-best-service-septic-tank-cleaning-phuket.webp"
+  },
+  "tracking": {
+    "gtmId": "xxxx",
+    "sentryKey": "xxxx",
+    "ga4Id": "",
+    "metaPixelId": "",
+    "customHeadScript": "",
+    "customBodyScript": ""
+  },
+  "contact": {
+    "phoneDisplay": "095-424-1968",
+    "phoneName": "คุณเอฟ",
+    "phoneNameEn": "Aef",
+    "phoneSecondary": "093-463-2466",
+    "phoneSecondaryName": "คุณเชอรี่",
+    "phoneSecondaryNameEn": "Cheery",
+    "email": "jinaservice@gmail.com",
+    "lineUrl": "https://line.me/ti/p/u7sv0ftQrm",
+    "facebookUrl": "https://www.facebook.com/jinaservice/",
+    "googleMapsUrl": "https://maps.app.goo.gl/yM9n7Jp7Fu8jJwvA9"
+  },
+  "schema": {
+    "legalName": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส",
+    "brandName": "JINA SERVICE",
+    "taxID": "0833562000955",
+    "ratingValue": "4.9",
+    "reviewCount": "128",
+    "priceRange": "฿1,xxx - ฿10,000",
+    "geoLat": 8.0227997,
+    "geoLng": 98.3453047
+  },
+  "logo": {
+    "wordmark": "JINA",
+    "line": "SERVICE",
+    "highlight": "PHUKET"
+  }
+}

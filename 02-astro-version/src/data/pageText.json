@@ -1,0 +1,744 @@
+{
+  "stats": [
+    {
+      "value": 30,
+      "suffix": "+",
+      "th": "ปีแห่งประสบการณ์",
+      "en": "Years of Experience"
+    },
+    {
+      "value": 1500,
+      "suffix": "+",
+      "th": "ลูกค้าที่พึงพอใจกับผลงาน",
+      "en": "Satisfied Clients"
+    },
+    {
+      "value": 24,
+      "suffix": "/7",
+      "th": "ชั่วโมงปฏิบัติงานทำความสะอาด",
+      "en": "Hours Active Operation"
+    },
+    {
+      "value": 17,
+      "suffix": "",
+      "th": "ตำบลครอบคลุมทั่วภูเก็ต",
+      "en": "Subdistricts Across Phuket"
+    },
+    {
+      "value": 100,
+      "suffix": "%",
+      "th": "อัตราความพึงพอใจและประกันงาน",
+      "en": "Satisfaction & Warranty"
+    }
+  ],
+  "nav": {
+    "t01": {
+      "th": "บริการ",
+      "en": "Services"
+    },
+    "t02": {
+      "th": "แกลเลอรี",
+      "en": "Gallery"
+    },
+    "t03": {
+      "th": "มาตรฐาน",
+      "en": "Standards"
+    },
+    "t04": {
+      "th": "ราคา",
+      "en": "Price"
+    },
+    "t05": {
+      "th": "พื้นที่บริการ",
+      "en": "Coverage"
+    },
+    "t06": {
+      "th": "บทความ",
+      "en": "Blog"
+    },
+    "t07": {
+      "th": "คำถามพบบ่อย",
+      "en": "FAQ"
+    },
+    "t08": {
+      "th": "ปรึกษาฟรี",
+      "en": "Free Consult"
+    }
+  },
+  "mobileNav": {
+    "t01": {
+      "th": "บริการของเรา",
+      "en": "Our Services"
+    },
+    "t02": {
+      "th": "ภาพผลงานจริง",
+      "en": "Work Gallery"
+    },
+    "t03": {
+      "th": "มาตรฐานการทำงาน",
+      "en": "Standards"
+    },
+    "t04": {
+      "th": "อัตราค่าบริการ",
+      "en": "Pricing"
+    },
+    "t05": {
+      "th": "พื้นที่บริการ 17 ตำบล",
+      "en": "Service Areas"
+    },
+    "t06": {
+      "th": "สาระน่ารู้ & บทความ",
+      "en": "Blog & Articles"
+    },
+    "t07": {
+      "th": "คำถามที่พบบ่อย",
+      "en": "FAQ"
+    }
+  },
+  "hero": {
+    "t01": {
+      "th": "ขอประเมินราคาฟรี",
+      "en": "Request a free estimate"
+    }
+  },
+  "services": {
+    "t01": {
+      "th": "OUR SERVICES",
+      "en": ""
+    },
+    "t02": {
+      "th": "ราคา",
+      "en": "Price"
+    },
+    "t03": {
+      "th": "ปรึกษาฟรี →",
+      "en": "Free consult →"
+    }
+  },
+  "equipment": {
+    "t01": {
+      "th": "EQUIPMENT & SAFETY",
+      "en": ""
+    }
+  },
+  "gallery": {
+    "t01": {
+      "th": "JINA SERVICE PORTFOLIO",
+      "en": ""
+    },
+    "t02": {
+      "th": "รวมภาพ จินาเซอร์วิส ภูเก็ต",
+      "en": "JINA SERVICE Phuket gallery"
+    },
+    "t03": {
+      "th": "ประมวลภาพงานปฏิบัติการจริงทั่วภูเก็ต ทั้งบ้านพัก โรงแรม คอนโด สายการบิน โรงแรม รีสอร์ท สำนักงาน โรงเรียนและเทศกาลระดับประเทศ",
+      "en": "Real operational photos across Phuket covering residences, hotels, condos, airlines, resorts, offices, schools, and national festivals."
+    },
+    "t04": {
+      "th": "ทั้งหมด",
+      "en": "All"
+    },
+    "t05": {
+      "th": "รูปรถและอุปกรณ์",
+      "en": "Fleet & equipment"
+    },
+    "t06": {
+      "th": "สูบสิ่งปฏิกูล & AirAsia",
+      "en": "Septic & AirAsia service"
+    },
+    "t07": {
+      "th": "เทศกาลดนตรี EDC",
+      "en": "EDC Music Festival"
+    },
+    "t08": {
+      "th": "ขุดลอกท่อ & บ่อน้ำเสีย",
+      "en": "Drain & pond dredging"
+    },
+    "t09": {
+      "th": "ติดตั้งถังบำบัด",
+      "en": "Septic tank installation"
+    },
+    "t10": {
+      "th": "คลิปวิดีโอ (VDO)",
+      "en": "Video clips (VDO)"
+    },
+    "t11": {
+      "th": "ภาพที่",
+      "en": "Image"
+    },
+    "t12": {
+      "th": "จาก",
+      "en": "of"
+    },
+    "t13": {
+      "th": "สไลด์โชว์",
+      "en": "Slideshow"
+    },
+    "t14": {
+      "th": "ตารางภาพทั้งหมด",
+      "en": "Grid View"
+    },
+    "t15": {
+      "th": "🔍 ขยายเต็มจอ",
+      "en": ""
+    },
+    "t16": {
+      "th": "ขยายเต็มจอ",
+      "en": "Full Screen"
+    },
+    "t17": {
+      "th": "💡 คลิกที่ภาพหรือวิดีโอเพื่อเปิดดูขนาดใหญ่แบบ Full-Screen ได้ทุกรายการ",
+      "en": "💡 Click any photo or video to view in full-screen"
+    }
+  },
+  "standards": {
+    "t01": {
+      "th": "THE JINA STANDARD",
+      "en": ""
+    }
+  },
+  "expertise": {
+    "t01": {
+      "th": "30 YEARS OF SANITATION EXPERIENCE",
+      "en": ""
+    },
+    "t02": {
+      "th": "เชี่ยวชาญงานสูบสิ่งปฏิกูล",
+      "en": "30 Years of Septic &"
+    },
+    "t03": {
+      "th": "และระบบบำบัดน้ำเสียครบวงจร",
+      "en": "Wastewater Services in Phuket"
+    },
+    "t04": {
+      "th": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส มีประสบการณ์ด้านงานสูบสิ่งปฏิกูล 30 ปี ให้บริการครบทั้งอำเภอเมืองภูเก็ต อำเภอกะทู้ และอำเภอถลาง พร้อมเข้าดูหน้างานและประเมินราคาเบื้องต้นฟรี ไม่มีค่าใช้จ่าย",
+      "en": "JINA SERVICE LIMITED PARTNERSHIP has 30 years of sanitation-pumping experience across Mueang Phuket, Kathu and Thalang, with free preliminary site assessment."
+    },
+    "t05": {
+      "th": "รับบริการสำหรับบ้าน คอนโด แมนชั่น อพาร์ทเม้นท์ โรงเรียน โรงแรม ร้านอาหาร ร้านค้า ออฟฟิศ และอาคารสำนักงาน ครอบคลุมงานสูบสิ่งปฏิกูล แก้ท่อตัน และดูแลระบบบำบัดน้ำเสียในภูเก็ต",
+      "en": "We serve homes, condominiums, apartments, schools, hotels, restaurants, shops and offices for sanitation pumping, blocked drains and wastewater systems in Phuket."
+    },
+    "t06": {
+      "th": "(เอกสารจดทะเบียน)",
+      "en": "(Registration Document)"
+    },
+    "t07": {
+      "th": "บ้าน",
+      "en": "Homes"
+    },
+    "t08": {
+      "th": "คอนโด",
+      "en": "Condominiums"
+    },
+    "t09": {
+      "th": "แมนชั่น",
+      "en": "Mansions"
+    },
+    "t10": {
+      "th": "อพาร์ทเม้นท์",
+      "en": "Apartments"
+    },
+    "t11": {
+      "th": "โรงเรียน",
+      "en": "Schools"
+    },
+    "t12": {
+      "th": "โรงแรม",
+      "en": "Hotels"
+    },
+    "t13": {
+      "th": "ร้านอาหาร",
+      "en": "Restaurants"
+    },
+    "t14": {
+      "th": "ร้านค้า",
+      "en": "Shops"
+    },
+    "t15": {
+      "th": "ออฟฟิศ",
+      "en": "Offices"
+    },
+    "t16": {
+      "th": "อาคารสำนักงาน",
+      "en": "Commercial buildings"
+    },
+    "t17": {
+      "th": "บริการดูแลถังบำบัดครบวงจร",
+      "en": "Complete septic and wastewater care"
+    },
+    "t18": {
+      "th": "จินา เซอร์วิส ให้บริการทำความสะอาดและสูบถังบำบัดทั่วภูเก็ต ครอบคลุมเมืองภูเก็ต ถลาง เชิงทะเล ไม้ขาว ป่าตอง กมลา และราไวย์",
+      "en": "JINA SERVICE provides septic tank pumping and wastewater services across Phuket Town, Thalang, Cherng Talay, Mai Khao, Patong, Kamala and Rawai."
+    },
+    "t19": {
+      "th": "ทำความสะอาดและสูบถังบำบัด",
+      "en": "Septic tank pumping & cleaning"
+    },
+    "t20": {
+      "th": "ทำความสะอาดหรือติดตั้งถังดักไขมัน",
+      "en": "Grease trap cleaning & installation"
+    },
+    "t21": {
+      "th": "แก้ไขท่อระบายน้ำอุดตัน",
+      "en": "Blocked drain clearing"
+    },
+    "t22": {
+      "th": "ซ่อมและติดตั้งอะไหล่สุขภัณฑ์",
+      "en": "Toilet fixture & spare-part installation"
+    },
+    "t23": {
+      "th": "รับประกันตามประเภทงาน 1–12 เดือน โดยแจ้งเงื่อนไขก่อนเริ่มงาน",
+      "en": "1–12 months warranty depending on job scope or agreed terms."
+    },
+    "t24": {
+      "th": "บริการเกี่ยวกับระบบบำบัดและสุขาภิบาล",
+      "en": "Wastewater & Septic Services"
+    },
+    "t25": {
+      "th": "สูบส้วม น้ำเสีย ไขมัน และสิ่งปฏิกูลทุกประเภท",
+      "en": "All Wastewater, Grease & Septic Pumping"
+    },
+    "t26": {
+      "th": "แก้ท่อตันด้วยงูเหล็ก: ชักโครก ท่อพื้นห้องน้ำ และซิงค์น้ำ",
+      "en": "Drain snake clearing: toilets, floor drains, and sinks"
+    },
+    "t27": {
+      "th": "ขุดลอกท่อระบายน้ำ และล้างทำความสะอาดถังเก็บน้ำ",
+      "en": "Drain pipe dredging and water storage tank cleaning"
+    },
+    "t28": {
+      "th": "วางระบบถังบำบัด บ่อเกรอะ วางหรือย้ายระบบท่อน้ำ",
+      "en": "Septic tank installation, cesspools, water pipe works"
+    },
+    "t29": {
+      "th": "ติดตั้งสุขภัณฑ์และท่อระบายน้ำพื้น Floor Drain",
+      "en": "Sanitary fixture & floor drain installation"
+    },
+    "t30": {
+      "th": "เวลาทำการ 09.00–18.00 น.",
+      "en": "Service hours 09:00–18:00"
+    },
+    "t31": {
+      "th": "งานช่วงกลางคืนกรุณานัดหมายล่วงหน้า",
+      "en": "Night service is available by advance appointment."
+    },
+    "t32": {
+      "th": "ทุกปัญหาเรื่องส้วมที่กวนใจ แก้ได้ครบ จบ เพียงโทรหาเรา",
+      "en": "One call to our team handles your septic and sanitation problem from start to finish."
+    }
+  },
+  "pricing": {
+    "t01": {
+      "th": "CLEAR STARTING POINTS",
+      "en": ""
+    },
+    "t02": {
+      "th": "นิยม",
+      "en": "Popular"
+    },
+    "t03": {
+      "th": "ขอราคาหน้างาน →",
+      "en": "Contact us"
+    }
+  },
+  "reviews": {
+    "t01": {
+      "th": "CUSTOMER STORIES & GOOGLE REVIEWS",
+      "en": ""
+    },
+    "t02": {
+      "th": "ประสบการณ์จากลูกค้าของเรา",
+      "en": "Customer Stories & Verified Reviews"
+    },
+    "t03": {
+      "th": "ดูรีวิวบน Google Maps",
+      "en": "View Reviews on Google Maps"
+    },
+    "t04": {
+      "th": "ประสบการณ์ลูกค้า",
+      "en": "Customer Story"
+    },
+    "t05": {
+      "th": "“นัดเช้า ทีมมาตรงเวลา อธิบายก่อนทำ และเก็บพื้นที่หน้าบ้านสะอาดดีมาก”",
+      "en": "“Booked a morning slot. The crew arrived right on time, explained the steps beforehand, and left the front yard spotless.”"
+    },
+    "t06": {
+      "th": "ลูกค้าบ้านพัก • ฉลอง",
+      "en": "Residential Homeowner • Chalong"
+    },
+    "t07": {
+      "th": "Google Maps",
+      "en": ""
+    },
+    "t08": {
+      "th": "“จัดรอบดูแลบ่อดักไขมันให้ครัวได้ชัดเจน ลดปัญหากลิ่นช่วงลูกค้าเยอะ”",
+      "en": "“Set up a clear maintenance schedule for our kitchen grease trap. Eliminated odor issues completely during rush hours.”"
+    },
+    "t09": {
+      "th": "ผู้จัดการร้านอาหาร • ป่าตอง",
+      "en": "Restaurant Manager • Patong"
+    },
+    "t10": {
+      "th": "“ติดต่อสะดวก ส่งตำแหน่งแล้วประเมินเบื้องต้นได้เลย งานเรียบร้อยและสื่อสารดี”",
+      "en": "“Super easy to contact. Sent our location and got an initial estimate right away. Clean work and great communication.”"
+    },
+    "t11": {
+      "th": "ผู้ดูแลอาคาร • เมืองภูเก็ต",
+      "en": "Property Manager • Phuket Town"
+    },
+    "t12": {
+      "th": "แสดงทั้งประสบการณ์ที่ลูกค้าแบ่งปันกับเราและรีวิวจาก Google Maps โดยสามารถเลือกและจัดลำดับได้",
+      "en": "Featuring verified customer feedback and Google Maps reviews curated for transparency."
+    }
+  },
+  "coverage": {
+    "t01": {
+      "th": "SERVICE COVERAGE",
+      "en": "SERVICE COVERAGE"
+    },
+    "t02": {
+      "th": "พื้นที่ให้บริการในภูเก็ต",
+      "en": "Service Areas Across Phuket"
+    },
+    "t03": {
+      "th": "ให้บริการครบทั้ง 17 ตำบล ในอำเภอเมืองภูเก็ต อำเภอกะทู้ และอำเภอถลาง สำหรับบ้าน ร้านอาหาร โรงแรม โรงเรียน และสำนักงาน",
+      "en": "Serving all 17 subdistricts in Mueang Phuket, Kathu and Thalang for homes, restaurants, hotels, schools and offices."
+    },
+    "t04": {
+      "th": "อำเภอเมืองภูเก็ต",
+      "en": "Mueang Phuket District"
+    },
+    "t05": {
+      "th": "ตำบลตลาดใหญ่ • ตำบลตลาดเหนือ • ตำบลเกาะแก้ว • ตำบลรัษฎา • ตำบลวิชิต • ตำบลฉลอง • ตำบลราไวย์ • ตำบลกะรน",
+      "en": "Talat Yai • Talat Nuea • Ko Kaeo • Ratsada • Wichit • Chalong • Rawai • Karon"
+    },
+    "t06": {
+      "th": "อำเภอกะทู้",
+      "en": "Kathu District"
+    },
+    "t07": {
+      "th": "ตำบลกะทู้ • ตำบลป่าตอง • ตำบลกมลา",
+      "en": "Kathu • Patong • Kamala"
+    },
+    "t08": {
+      "th": "อำเภอถลาง",
+      "en": "Thalang District"
+    },
+    "t09": {
+      "th": "ตำบลเทพกระษัตรี • ตำบลศรีสุนทร • ตำบลเชิงทะเล • ตำบลป่าคลอก • ตำบลไม้ขาว • ตำบลสาคู",
+      "en": "Thep Krasattri • Si Sunthon • Cherng Talay • Pa Klok • Mai Khao • Sakhu"
+    },
+    "t10": {
+      "th": "สถานที่ตั้งจริงบน Google Maps",
+      "en": "Official location on Google Maps"
+    },
+    "t11": {
+      "th": "สูบส้วม ท่อตัน เรียกใช้มือโปร จินาเซอร์วิส",
+      "en": "JINA SERVICE Phuket — Official Location"
+    },
+    "t12": {
+      "th": "เปิดสถานที่จริงใน Google Maps →",
+      "en": "Open our location in Google Maps →"
+    }
+  },
+  "contact": {
+    "t01": {
+      "th": "REQUEST A CALLBACK",
+      "en": ""
+    },
+    "t02": {
+      "th": "บอกหน้างานคร่าวๆ",
+      "en": "Tell us about the site"
+    },
+    "t03": {
+      "th": "ให้เราช่วยประเมิน",
+      "en": "We'll help estimate"
+    },
+    "t04": {
+      "th": "ประเมินราคาฟรี ไม่มีค่าใช้จ่ายแอบแฝง — ทีมช่างพร้อมออกหน้างานทันที 24 ชม.",
+      "en": "Free consultation with zero hidden fees — 24/7 on-site emergency dispatch across Phuket"
+    },
+    "t05": {
+      "th": "หากมีรูปทางเข้ารถ จุดเปิดบ่อ หรือท่อที่มีปัญหา เตรียมไว้ส่งทาง LINE จะช่วยประเมินได้เร็วขึ้น",
+      "en": "Send photos of the vehicle access, tank opening or affected drain via LINE for a faster initial assessment."
+    },
+    "t06": {
+      "th": "LINE • JINA SERVICE",
+      "en": ""
+    },
+    "t07": {
+      "th": "f • Facebook / jinaservice",
+      "en": ""
+    },
+    "t08": {
+      "th": "สแกนเพิ่มเพื่อน LINE",
+      "en": "Scan to add us on LINE"
+    },
+    "t09": {
+      "th": "ส่งรูปหน้างานให้เราประเมินได้รวดเร็วขึ้น",
+      "en": "Send site photos for a faster assessment."
+    },
+    "t10": {
+      "th": "ชื่อ–นามสกุล",
+      "en": "Full name"
+    },
+    "t11": {
+      "th": "ชื่อผู้ติดต่อ",
+      "en": "Full name"
+    },
+    "t12": {
+      "th": "เบอร์โทรศัพท์",
+      "en": "Phone number"
+    },
+    "t13": {
+      "th": "LINE ID หรือ Facebook (ถ้ามี)",
+      "en": "LINE ID or Facebook (optional)"
+    },
+    "t14": {
+      "th": "เช่น @lineid, 0954241968 หรือชื่อ Facebook",
+      "en": "e.g. @lineid, 0954241968 or Facebook name"
+    },
+    "t15": {
+      "th": "ประเภทสถานที่",
+      "en": "Property type"
+    },
+    "t16": {
+      "th": "บ้านพักอาศัย",
+      "en": "Home"
+    },
+    "t17": {
+      "th": "สำนักงาน / ร้านค้า",
+      "en": "Office / Commercial shop"
+    },
+    "t18": {
+      "th": "โรงแรม / รีสอร์ต",
+      "en": "Hotel / Resort"
+    },
+    "t19": {
+      "th": "โรงเรียน / องค์กร",
+      "en": "School / Organization"
+    },
+    "t20": {
+      "th": "พื้นที่ / ตำบลในภูเก็ต",
+      "en": "Area / Subdistrict in Phuket"
+    },
+    "t21": {
+      "th": "เลือกตำบลในภูเก็ต",
+      "en": "Select Phuket subdistrict"
+    },
+    "t22": {
+      "th": "อำเภอเมืองภูเก็ต",
+      "en": "Mueang Phuket District"
+    },
+    "t23": {
+      "th": "ตำบลตลาดใหญ่",
+      "en": "Talat Yai"
+    },
+    "t24": {
+      "th": "ตำบลตลาดเหนือ",
+      "en": "Talat Nuea"
+    },
+    "t25": {
+      "th": "ตำบลเกาะแก้ว",
+      "en": "Koh Kaew"
+    },
+    "t26": {
+      "th": "ตำบลรัษฎา",
+      "en": "Rassada"
+    },
+    "t27": {
+      "th": "ตำบลวิชิต",
+      "en": "Vichit"
+    },
+    "t28": {
+      "th": "ตำบลฉลอง",
+      "en": "Chalong"
+    },
+    "t29": {
+      "th": "ตำบลราไวย์",
+      "en": "Rawai"
+    },
+    "t30": {
+      "th": "ตำบลกะรน",
+      "en": "Karon"
+    },
+    "t31": {
+      "th": "อำเภอกะทู้",
+      "en": "Kathu District"
+    },
+    "t32": {
+      "th": "ตำบลกะทู้",
+      "en": "Kathu"
+    },
+    "t33": {
+      "th": "ตำบลป่าตอง",
+      "en": "Patong"
+    },
+    "t34": {
+      "th": "ตำบลกมลา",
+      "en": "Kamala"
+    },
+    "t35": {
+      "th": "อำเภอถลาง",
+      "en": "Thalang District"
+    },
+    "t36": {
+      "th": "ตำบลเทพกระษัตรี",
+      "en": "Thepkrasattri"
+    },
+    "t37": {
+      "th": "ตำบลศรีสุนทร",
+      "en": "Srisoonthorn"
+    },
+    "t38": {
+      "th": "ตำบลเชิงทะเล",
+      "en": "Cherngtalay"
+    },
+    "t39": {
+      "th": "ตำบลป่าคลอก",
+      "en": "Pa Klok"
+    },
+    "t40": {
+      "th": "ตำบลไม้ขาว",
+      "en": "Mai Khao"
+    },
+    "t41": {
+      "th": "ตำบลสาคู",
+      "en": "Sakhu"
+    },
+    "t42": {
+      "th": "ขนาดบ่อ (ถ้าทราบ)",
+      "en": "Tank capacity (if known)"
+    },
+    "t43": {
+      "th": "พิมพ์หรือเลือก (เช่น ไม่ทราบ)",
+      "en": "Type or select (e.g. Unknown)"
+    },
+    "t44": {
+      "th": "รายละเอียดเพิ่มเติม",
+      "en": "Additional details"
+    },
+    "t45": {
+      "th": "อาการที่พบ เวลาที่สะดวก หรือข้อมูลทางเข้ารถ",
+      "en": "Describe the issue, preferred time and vehicle access"
+    },
+    "t46": {
+      "th": "สนใจสมัครสมาชิก และยินยอมให้ JINA SERVICE ใช้ข้อมูลติดต่อเพื่อแจ้งโปรโมชั่น",
+      "en": "Subscribe for membership and allow JINA SERVICE to contact you for promotional updates"
+    },
+    "t47": {
+      "th": "หากเลือกสมัคร กรุณากรอกชื่อและเบอร์โทรให้ครบ",
+      "en": "If subscribing, please provide your name and phone number."
+    },
+    "t48": {
+      "th": "ส่งข้อมูลให้ทีมประเมินฟรี →",
+      "en": "Send free estimate request →"
+    }
+  },
+  "faq": {
+    "t01": {
+      "th": "GOOD TO KNOW",
+      "en": ""
+    }
+  },
+  "facebook": {
+    "t01": {
+      "th": "FACEBOOK UPDATES",
+      "en": ""
+    },
+    "t02": {
+      "th": "อัปเดตงานจริงสดจากหน้าเพจ Facebook",
+      "en": "Live Updates Directly from Facebook Page"
+    },
+    "t03": {
+      "th": "ติดตามผลงานสูบส้วม ล้างบ่อเกรอะ ทะลวงท่อตัน และภาพหน้างานจริงของทีมงาน JINA SERVICE อัปเดตสดใหม่จากหน้าเพจทางการทุกวัน พร้อมรับข้อมูลโปรโมชั่นพิเศษ",
+      "en": "Follow our latest septic tank pumping, drain clearing, and verified field operations directly from the official JINA SERVICE Facebook Page."
+    },
+    "t04": {
+      "th": "กดติดตามเพจ @jinaservice",
+      "en": "Follow @jinaservice on Facebook"
+    },
+    "t05": {
+      "th": "ดูรีวิวงานจริง 24 ชม. • สิทธิ์คิวด่วน",
+      "en": "Live reviews 24/7 • Priority booking"
+    },
+    "t06": {
+      "th": "กดติดตาม",
+      "en": "Follow"
+    },
+    "t07": {
+      "th": "เปิดหน้าเพจ Facebook ทางการ →",
+      "en": "Open Official Facebook Page →"
+    },
+    "t08": {
+      "th": "ข้อมูลและโพสต์ทั้งหมดซิงค์จากเพจทางการ JINA SERVICE",
+      "en": "All updates synced live from official Facebook page"
+    },
+    "t09": {
+      "th": "ดูดส้วม ท่อตัน ภูเก็ต จินาเซอร์วิส",
+      "en": "JINA SERVICE Phuket"
+    },
+    "t10": {
+      "th": "@jinaservice • ผู้ติดตาม 611+ คน •",
+      "en": ""
+    },
+    "t11": {
+      "th": "เปิด 24 ชม.",
+      "en": "Open 24 Hours"
+    },
+    "t12": {
+      "th": "+ ติดตาม",
+      "en": ""
+    },
+    "t13": {
+      "th": "ฟีดผลงานจริงล่าสุด",
+      "en": ""
+    },
+    "t14": {
+      "th": "2 โพสต์ล่าสุด",
+      "en": ""
+    },
+    "t15": {
+      "th": "เปิดดูบน Facebook ↗",
+      "en": ""
+    },
+    "t16": {
+      "th": "🗓️ 2 พฤศจิกายน เวลา 11:44 น. • ภูเก็ต 🌐",
+      "en": ""
+    },
+    "t17": {
+      "th": "สวัสดีวันจันทร์ 🚛 หจก. จินา เซอร์วิส ยินดีให้บริการสูบส้วม น้ำเสีย ไขมัน และสิ่งปฏิกูลทุกประเภท แก้ไขท่อตัน(งูเหล็ก) ขุดลอกท่อ ล้างถังเก็บน้ำ วางระบบถังบำบัด ทุกพื้นที่ทั้งเกาะภูเก็ต 🏝 ประเมินราคาหน้างานฟรี‼️ โทร",
+      "en": ""
+    },
+    "t18": {
+      "th": "👍 ❤️ 142 คนถูกใจ • 18 ความคิดเห็น",
+      "en": ""
+    },
+    "t19": {
+      "th": "ดูโพสต์นี้ ↗",
+      "en": "View this post ↗"
+    },
+    "t20": {
+      "th": "🗓️ 31 ตุลาคม เวลา 11:16 น. • ภูเก็ต 🌐",
+      "en": ""
+    },
+    "t21": {
+      "th": "ไซต์งานวันนี้ ฝนไม่ตกแล้วเรียกใช้ได้เลยค่ะ 👍🏻🥰 หจก. จินา เซอร์วิส ยินดีให้บริการสูบส้วม น้ำเสีย ไขมัน แก้ไขท่อตัน(งูเหล็ก) ขุดลอกท่อ ล้างถังบำบัดทั่วภูเก็ต 17 ตำบล ปฏิบัติงานด้วยมาตรฐาน พร้อมประเมินราคาก่อนเริ่มงาน",
+      "en": ""
+    },
+    "t22": {
+      "th": "👍 ❤️ 98 คนถูกใจ • 12 ความคิดเห็น",
+      "en": ""
+    }
+  },
+  "footer": {
+    "t01": {
+      "th": "ทักหาเราเลย LINE",
+      "en": "Chat with us on LINE"
+    },
+    "t02": {
+      "th": "Facebook",
+      "en": ""
+    }
+  }
+}

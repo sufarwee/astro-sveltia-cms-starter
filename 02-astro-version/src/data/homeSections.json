@@ -1,0 +1,56 @@
+{
+  "sections": [
+    {
+      "id": "proof",
+      "enabled": true
+    },
+    {
+      "id": "services",
+      "enabled": true
+    },
+    {
+      "id": "equipment",
+      "enabled": true
+    },
+    {
+      "id": "gallery",
+      "enabled": true
+    },
+    {
+      "id": "standards",
+      "enabled": true
+    },
+    {
+      "id": "license",
+      "enabled": true
+    },
+    {
+      "id": "pricing",
+      "enabled": true
+    },
+    {
+      "id": "reviews",
+      "enabled": true
+    },
+    {
+      "id": "hook",
+      "enabled": true
+    },
+    {
+      "id": "coverage",
+      "enabled": true
+    },
+    {
+      "id": "contact",
+      "enabled": true
+    },
+    {
+      "id": "faq",
+      "enabled": true
+    },
+    {
+      "id": "social",
+      "enabled": true
+    }
+  ]
+}

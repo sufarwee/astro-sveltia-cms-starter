@@ -1,0 +1,136 @@
+{
+  "headingTh": "ราคาเข้าใจง่าย ก่อนทีมออกเดินทาง",
+  "headingEn": "Clear Upfront Rates",
+  "leadTh": "ราคาจริงขึ้นกับปริมาตร ระยะสาย ระยะทาง และการเข้าถึง กรุณาส่งข้อมูลเพื่อประเมินที่แม่นยำ",
+  "leadEn": "Final pricing depends on tank volume, hose length, travel and site access. Contact us for an accurate quotation.",
+  "cards": [
+    {
+      "title": "บ้านพักอาศัย",
+      "titleEn": "Home",
+      "price": "เริ่มต้น ฿1,xxx*",
+      "priceEn": "Start ฿1,xxx*",
+      "desc": "บ่อขนาดเล็ก / เข้าถึงสะดวก",
+      "descEn": "Small tank / easy access",
+      "popular": false
+    },
+    {
+      "title": "ธุรกิจและสำนักงาน",
+      "titleEn": "Business & office",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation",
+      "desc": "ร้านอาหาร ออฟฟิศ โรงเรียน",
+      "descEn": "Restaurants, offices and schools",
+      "popular": true
+    },
+    {
+      "title": "โรงแรมและโครงการ",
+      "titleEn": "Hotel & project",
+      "price": "สัญญารายรอบ",
+      "priceEn": "Scheduled service plan",
+      "desc": "วางตารางดูแล ลดงานฉุกเฉิน",
+      "descEn": "Planned maintenance to reduce emergencies",
+      "popular": false
+    }
+  ],
+  "fineprint": "* ราคาเริ่มต้นเป็นตัวอย่างสำหรับงานทั่วไป ยืนยันราคาอีกครั้งหลังรับรายละเอียดหน้างาน",
+  "fineprintEn": "*Starting prices are indicative. We confirm the quotation after reviewing the site details.",
+  "packagesSection": {
+    "enabled": false,
+    "title": "แพ็กเกจราคาและบริการเหมาดูแล (Service Packages & Rates)",
+    "subtitle": "เลือกแพ็กเกจที่เหมาะกับประเภทอาคารของคุณ พร้อมการรับประกันและดูแลอย่างต่อเนื่องทั่วภูเก็ต",
+    "packages": [
+      {
+        "name": "แพ็กเกจบ้านพักอาศัย (Standard Home)",
+        "image": "/media/jina-standard-1.webp",
+        "category": "บ้านเดี่ยว ทาวน์เฮ้าส์ อาคารพาณิชย์",
+        "price": "เริ่มต้น ฿1,xxx",
+        "rating": "4.9",
+        "reviewCount": "128 รีวิว",
+        "popular": false,
+        "badge": "🏡 ยอดนิยมสำหรับบ้าน",
+        "features": [
+          "สูบส้วม / ล้างบ่อเกรอะสิ่งปฏิกูลบ้านพัก",
+          "เช็คระบบทางระบายน้ำและท่ออากาศ",
+          "สายส่งมาตรฐานยาวพิเศษ ไม่เหยียบสนามหญ้า",
+          "เก็บกวาดล้างทำความสะอาดพื้นที่เรียบร้อย",
+          "รับประกันงาน 1–3 เดือน"
+        ],
+        "ctaText": "จองคิวแพ็กเกจบ้านพัก"
+      },
+      {
+        "name": "แพ็กเกจร้านอาหาร & คาเฟ่ (Business Care)",
+        "image": "/media/gallery-real/drain-dredging/S__25911299.webp",
+        "category": "ร้านอาหาร คาเฟ่ โรงแรม บาร์ คลินิก",
+        "price": "ประเมินตามหน้างาน",
+        "rating": "5.0",
+        "reviewCount": "84 รีวิว",
+        "popular": true,
+        "badge": "⭐ แนะนำสำหรับธุรกิจ",
+        "features": [
+          "ดูดล้างทำความสะอาดถังดักไขมันทั้งระบบ",
+          "ทะลวงท่อเมนครัวด้วยเครื่องงูเหล็กไฟฟ้า",
+          "วางรอบดูแลประจำเดือน/ไตรมาส ป้องกันน้ำเอ่อ",
+          "บริการนอกเวลาเปิดร้าน ไม่รบกวนลูกค้า",
+          "ออกเอกสารใบกำจัดสิ่งปฏิกูลและใบเสร็จถูกต้อง"
+        ],
+        "ctaText": "ขอใบเสนอราคาร้านอาหาร"
+      },
+      {
+        "name": "แพ็กเกจโครงการ & โรงแรม (Corporate Care)",
+        "image": "/media/gallery-real/fleet-trucks/car01-1.webp",
+        "category": "รีสอร์ท คอนโด โรงเรียน โรงงาน หน่วยงาน",
+        "price": "สัญญารายรอบ / เหมาจ่าย",
+        "rating": "5.0",
+        "reviewCount": "42 โครงการ",
+        "popular": false,
+        "badge": "🏢 สัญญารายปีสุดคุ้ม",
+        "features": [
+          "ขบวนรถสูบสิ่งปฏิกูลและบ่อบำบัดขนาดใหญ่",
+          "ทีมช่างสแตนด์บายฉุกเฉิน 24 ชั่วโมง",
+          "ขุดลอกท่อระบายน้ำโครงการและล้างบ่อพัก",
+          "แผนป้องกันเหตุก่อนวันหยุดยาว / High Season",
+          "ออกใบกำกับภาษีเต็มรูปแบบ และใบอนุญาตขนย้าย"
+        ],
+        "ctaText": "ปรึกษางานโครงการ"
+      }
+    ],
+    "perJobRates": [
+      {
+        "job": "สูบส้วม / ล้างบ่อเกรอะ (บ้านพักทั่วไป)",
+        "image": "/media/jina-standard-1.webp",
+        "rate": "เริ่มต้น ฿1,xxx*",
+        "unit": "ต่อบ่อ / เที่ยว",
+        "badge": "งานด่วน 24 ชม."
+      },
+      {
+        "job": "แก้ไขท่อตันด้วยงูเหล็กไฟฟ้า (ชักโครก/ท่อพื้น/ซิงค์ครัว)",
+        "image": "/media/gallery-real/drain-dredging/S__25911299.webp",
+        "rate": "เริ่มต้น ฿1,500*",
+        "unit": "ต่อจุด (ไม่หายไม่คิดเงิน)",
+        "badge": "งูเหล็กเฉพาะทาง"
+      },
+      {
+        "job": "ดูดล้างทำความสะอาดถังดักไขมัน (ร้านอาหาร/บ้าน)",
+        "image": "/media/jina-standard-2.webp",
+        "rate": "เริ่มต้น ฿1,500*",
+        "unit": "ต่อถัง / ตามขนาด",
+        "badge": "ไร้กลิ่นรบกวน"
+      },
+      {
+        "job": "ขุดลอกท่อระบายน้ำ / บ่อพักน้ำเสีย",
+        "image": "/media/gallery-real/fleet-trucks/car01-1.webp",
+        "rate": "ประเมินตามระยะทางและหน้างาน",
+        "unit": "ตามปริมาณงานจริง",
+        "badge": "ประเมินฟรี"
+      },
+      {
+        "job": "ล้างทำความสะอาดถังเก็บน้ำใต้ดิน / บนดิน",
+        "image": "/media/jina-standard-3.webp",
+        "rate": "ประเมินตามขนาดถัง",
+        "unit": "ต่อถัง",
+        "badge": "สะอาดปลอดภัย"
+      }
+    ],
+    "footnote": "* หมายเหตุ: ราคาเริ่มต้นเป็นตัวอย่างสำหรับงานทั่วไป ราคาจริงขึ้นกับปริมาตรบ่อ ระยะสาย ระยะทาง และสภาพหน้างาน โดยทีมช่างจะประเมินและแจ้งยืนยันราคาก่อนเริ่มงานทุกครั้ง ไม่มีค่าใช้จ่ายแอบแฝง"
+  }
+}

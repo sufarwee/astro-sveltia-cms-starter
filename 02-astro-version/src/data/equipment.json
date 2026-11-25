@@ -1,0 +1,34 @@
+{
+  "headingTh": "อุปกรณ์มาตรฐาน ทำงานปลอดภัย",
+  "headingEn": "Standard Equipment • Safe Operation",
+  "isoNote": "เลือกใช้อุปกรณ์ที่ได้มาตรฐาน ISO หรือมาตรฐานสากลที่เกี่ยวข้องตามประเภทการใช้งาน พร้อมตรวจสภาพก่อนออกงาน",
+  "isoNoteEn": "We select equipment manufactured to relevant ISO or international standards and inspect it before dispatch.",
+  "items": [
+    {
+      "title": "รถสูบและระบบถัง",
+      "titleEn": "Vacuum trucks and tank systems",
+      "desc": "ตรวจระบบสูบ วาล์ว ถัง และจุดเชื่อมต่อก่อนใช้งาน",
+      "descEn": "Pumps, valves, tanks and connections are checked before use."
+    },
+    {
+      "title": "สายดูดและข้อต่อ",
+      "titleEn": "Suction hoses and fittings",
+      "desc": "เลือกขนาดให้เหมาะกับงาน ตรวจรอยรั่วและการยึดล็อกทุกครั้ง",
+      "descEn": "Correct sizing, leak checks and secure connections for every job."
+    },
+    {
+      "title": "เครื่องทะลวงท่อตัน",
+      "titleEn": "Drain-clearing equipment",
+      "desc": "เครื่องมือเฉพาะทางสำหรับแก้จุดอุดตัน ลดความเสียหายต่อระบบท่อ",
+      "descEn": "Purpose-built tools clear blockages while reducing pipe damage."
+    },
+    {
+      "title": "อุปกรณ์ป้องกันส่วนบุคคล",
+      "titleEn": "Personal protective equipment",
+      "desc": "ทีมงานใช้อุปกรณ์ป้องกันและชุดทำงานที่เหมาะกับสภาพหน้างาน",
+      "descEn": "Our crew uses protective equipment suited to each work site."
+    }
+  ],
+  "footnote": "มาตรฐานของอุปกรณ์ขึ้นอยู่กับผู้ผลิต รุ่น และประเภทการใช้งาน ไม่ได้หมายความว่าห้างหุ้นส่วนได้รับการรับรองระบบบริหาร ISO",
+  "footnoteEn": "Equipment standards depend on the manufacturer, model and intended use; this does not state that JINA SERVICE holds ISO management-system certification."
+}

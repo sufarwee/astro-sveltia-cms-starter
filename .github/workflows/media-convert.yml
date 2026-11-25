@@ -1,0 +1,31 @@
+name: Process CMS media
+
+# After the CMS saves photos/videos: convert to WebP/WebM, make posters + thumbnails, commit back.
+# All steps live in .github/scripts/process_media.sh (editable without touching this file).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "02-astro-version/public/media/**"
+      - "02-astro-version/src/data/gallery.json"
+      - ".github/workflows/media-convert.yml"
+      - ".github/scripts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: process-media
+  cancel-in-progress: false
+
+jobs:
+  media:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: bash .github/scripts/process_media.sh

@@ -1,0 +1,554 @@
+{
+  "items": [
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_0801.webp",
+      "th": "สูบสิ่งปฏิกูลบ้านพักอาศัยและวิลล่าภูเก็ต",
+      "en": "Residential villa septic pumping in Phuket",
+      "altTh": "จินา เซอร์วิส สูบสิ่งปฏิกูลบ้านพักอาศัยและวิลล่าภูเก็ต",
+      "altEn": "JINA SERVICE Residential villa septic pumping in Phuket",
+      "featured": true
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/airasia/jina-airasia-01.webp",
+      "th": "งานสูบสิ่งปฏิกูล AirAsia ท่าอากาศยานภูเก็ต",
+      "en": "AirAsia aircraft wastewater pumping service, Phuket Airport",
+      "altTh": "รถจินา เซอร์วิส ปฏิบัติงานสูบสิ่งปฏิกูล AirAsia ภูเก็ต",
+      "altEn": "JINA SERVICE vacuum truck servicing AirAsia in Phuket",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/airasia/jina-airasia-02.webp",
+      "th": "รถสูบสิ่งปฏิกูลปฏิบัติงานลานจอดเครื่องบิน AirAsia ภูเก็ต",
+      "en": "Vacuum truck servicing an AirAsia aircraft on the apron, Phuket Airport",
+      "altTh": "รถจินา เซอร์วิส สูบสิ่งปฏิกูลเครื่องบิน AirAsia บนลานจอด ท่าอากาศยานภูเก็ต",
+      "altEn": "JINA SERVICE vacuum truck pumping AirAsia aircraft waste on the apron at Phuket Airport",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_1293.webp",
+      "th": "ตรวจเช็กระดับน้ำเสียและถังบำบัดหน้างาน",
+      "en": "On-site septic tank level inspection",
+      "altTh": "จินา เซอร์วิส ตรวจเช็กระดับน้ำเสียและถังบำบัดหน้างาน",
+      "altEn": "JINA SERVICE On-site septic tank level inspection",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_4912.webp",
+      "th": "ปฏิบัติงานสูบสิ่งปฏิกูลตามมาตรฐานสุขอนามัย",
+      "en": "Sanitary pumping operation by certified crew",
+      "altTh": "จินา เซอร์วิส ปฏิบัติงานสูบสิ่งปฏิกูลตามมาตรฐานสุขอนามัย",
+      "altEn": "JINA SERVICE Sanitary pumping operation by certified crew",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_7277.webp",
+      "th": "บริการสูบส้วมและดูแลระบบบำบัดทั่วภูเก็ต",
+      "en": "Septic pumping and treatment care across Phuket",
+      "altTh": "จินา เซอร์วิส บริการสูบส้วมและดูแลระบบบำบัดทั่วภูเก็ต",
+      "altEn": "JINA SERVICE Septic pumping and treatment care across Phuket",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_7281.webp",
+      "th": "ทีมงานเข้าหน้างานตรงเวลาพร้อมอุปกรณ์ครบชุด",
+      "en": "Punctual arrival with full vacuum equipment",
+      "altTh": "จินา เซอร์วิส ทีมงานเข้าหน้างานตรงเวลาพร้อมอุปกรณ์ครบชุด",
+      "altEn": "JINA SERVICE Punctual arrival with full vacuum equipment",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_7347.webp",
+      "th": "สูบน้ำเสียและไขมันบ่อดักไขมันร้านอาหาร",
+      "en": "Restaurant grease and wastewater pumping",
+      "altTh": "จินา เซอร์วิส สูบน้ำเสียและไขมันบ่อดักไขมันร้านอาหาร",
+      "altEn": "JINA SERVICE Restaurant grease and wastewater pumping",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_7348.webp",
+      "th": "ทำความสะอาดล้างบ่อเกรอะและพื้นที่หลังจบงาน",
+      "en": "Septic tank cleanout and clean site handover",
+      "altTh": "จินา เซอร์วิส ทำความสะอาดล้างบ่อเกรอะและพื้นที่หลังจบงาน",
+      "altEn": "JINA SERVICE Septic tank cleanout and clean site handover",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_7349.webp",
+      "th": "บริการงานด่วน แก้ปัญหาส้วมเต็ม",
+      "en": "Emergency response for full septic tanks",
+      "altTh": "จินา เซอร์วิส บริการงานด่วน แก้ปัญหาส้วมเต็ม",
+      "altEn": "JINA SERVICE Emergency response for full septic tanks",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_7594.webp",
+      "th": "สูบส้วมและขจัดตะกอนตกค้างในระบบบำบัด",
+      "en": "Sludge removal and septic maintenance",
+      "altTh": "จินา เซอร์วิส สูบส้วมและขจัดตะกอนตกค้างในระบบบำบัด",
+      "altEn": "JINA SERVICE Sludge removal and septic maintenance",
+      "featured": false
+    },
+    {
+      "category": "septic",
+      "type": "image",
+      "src": "./media/gallery-real/septic-work/IMG_7757.webp",
+      "th": "ทีมช่างมืออาชีพประสบการณ์ 30 ปีในภูเก็ต",
+      "en": "Professional team with 30 years experience",
+      "altTh": "จินา เซอร์วิส ทีมช่างมืออาชีพประสบการณ์ 30 ปีในภูเก็ต",
+      "altEn": "JINA SERVICE Professional team with 30 years experience",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_6800.webp",
+      "th": "รถสูบสิ่งปฏิกูลจินา เซอร์วิส ประจำจุดงานเทศกาล EDC",
+      "en": "JINA SERVICE vacuum truck stationed at EDC Festival",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - รถสูบสิ่งปฏิกูลจินา เซอร์วิส ประจำจุดงานเทศกาล EDC",
+      "altEn": "JINA SERVICE at EDC Phuket - JINA SERVICE vacuum truck stationed at EDC Festival",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_6802.webp",
+      "th": "การจัดการน้ำเสียและสิ่งปฏิกูลในงานอีเวนต์ขนาดใหญ่",
+      "en": "Large-scale event wastewater and sanitation management",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - การจัดการน้ำเสียและสิ่งปฏิกูลในงานอีเวนต์ขนาดใหญ่",
+      "altEn": "JINA SERVICE at EDC Phuket - Large-scale event wastewater and sanitation management",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_6805.webp",
+      "th": "รถและทีมช่างพร้อมรองรับงานเทศกาลดนตรี EDC",
+      "en": "Fleet and technicians ready for EDC music festival",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - รถและทีมช่างพร้อมรองรับงานเทศกาลดนตรี EDC",
+      "altEn": "JINA SERVICE at EDC Phuket - Fleet and technicians ready for EDC music festival",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_6806.webp",
+      "th": "บริการสูบส้วมเคลื่อนที่และสุขาชั่วคราวงาน EDC",
+      "en": "Mobile toilet and sanitation pumping for EDC festival",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - บริการสูบส้วมเคลื่อนที่และสุขาชั่วคราวงาน EDC",
+      "altEn": "JINA SERVICE at EDC Phuket - Mobile toilet and sanitation pumping for EDC festival",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_7027.webp",
+      "th": "ความพร้อมในการรองรับผู้เข้าร่วมงานนับหมื่นคน",
+      "en": "Capacity to handle major events with thousands of visitors",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - ความพร้อมในการรองรับผู้เข้าร่วมงานนับหมื่นคน",
+      "altEn": "JINA SERVICE at EDC Phuket - Capacity to handle major events with thousands of visitors",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_7031.webp",
+      "th": "ปฏิบัติงานต่อเนื่องทั้งกลางวันและกลางคืนในงาน EDC",
+      "en": "Day and night continuous sanitation operations at EDC",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - ปฏิบัติงานต่อเนื่องทั้งกลางวันและกลางคืนในงาน EDC",
+      "altEn": "JINA SERVICE at EDC Phuket - Day and night continuous sanitation operations at EDC",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_7032.webp",
+      "th": "ส่งมอบพื้นที่สะอาดเรียบร้อยหลังจบเทศกาล EDC",
+      "en": "Clean and orderly site handover after EDC festival finish",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - ส่งมอบพื้นที่สะอาดเรียบร้อยหลังจบเทศกาล EDC",
+      "altEn": "JINA SERVICE at EDC Phuket - Clean and orderly site handover after EDC festival finish",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_7042.webp",
+      "th": "พันธมิตรด้านสุขาภิบาลงานอีเวนต์ระดับนานาชาติในภูเก็ต",
+      "en": "Trusted sanitation partner for international events in Phuket",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - พันธมิตรด้านสุขาภิบาลงานอีเวนต์ระดับนานาชาติในภูเก็ต",
+      "altEn": "JINA SERVICE at EDC Phuket - Trusted sanitation partner for international events in Phuket",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_7043.webp",
+      "th": "รถดูดสิ่งปฏิกูลจินา เซอร์วิส ณ ลานจัดงาน EDC ภูเก็ต",
+      "en": "JINA SERVICE truck on location at EDC Phuket",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - รถดูดสิ่งปฏิกูลจินา เซอร์วิส ณ ลานจัดงาน EDC ภูเก็ต",
+      "altEn": "JINA SERVICE at EDC Phuket - JINA SERVICE truck on location at EDC Phuket",
+      "featured": false
+    },
+    {
+      "category": "edc",
+      "type": "image",
+      "src": "./media/gallery-real/edc-festival/IMG_7044.webp",
+      "th": "ทีมงานจินา เซอร์วิส ปฏิบัติงานในเทศกาลดนตรี EDC",
+      "en": "JINA SERVICE crew on duty at EDC music festival",
+      "altTh": "จินา เซอร์วิส ในเทศกาล EDC ภูเก็ต - ทีมงานจินา เซอร์วิส ปฏิบัติงานในเทศกาลดนตรี EDC",
+      "altEn": "JINA SERVICE at EDC Phuket - JINA SERVICE crew on duty at EDC music festival",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/drain-dredging/S__25903106.webp",
+      "th": "เปิดทางระบายน้ำ ป้องกันปัญหาน้ำท่วมขัง",
+      "en": "Clearing drain flow to prevent surface flooding",
+      "altTh": "จินา เซอร์วิส เปิดทางระบายน้ำ ป้องกันปัญหาน้ำท่วมขัง",
+      "altEn": "JINA SERVICE Clearing drain flow to prevent surface flooding",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/drain-dredging/S__25911299.webp",
+      "th": "ขุดลอกท่อระบายน้ำชุมชนและโครงการ",
+      "en": "Community and residential project drain dredging",
+      "altTh": "จินา เซอร์วิส ขุดลอกท่อระบายน้ำชุมชนและโครงการ",
+      "altEn": "JINA SERVICE Community and residential project drain dredging",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/drain-dredging/S__25919491.webp",
+      "th": "ลอกท่อระบายน้ำขจัดเศษขยะและสิ่งอุดตัน",
+      "en": "Clearing debris and blockages from drainage conduits",
+      "altTh": "จินา เซอร์วิส ลอกท่อระบายน้ำขจัดเศษขยะและสิ่งอุดตัน",
+      "altEn": "JINA SERVICE Clearing debris and blockages from drainage conduits",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/drain-dredging/S__25952258.webp",
+      "th": "ทีมงานลงพื้นที่ขุดลอกท่อระบายน้ำภูเก็ต",
+      "en": "Field crew conducting drain dredging in Phuket",
+      "altTh": "จินา เซอร์วิส ทีมงานลงพื้นที่ขุดลอกท่อระบายน้ำภูเก็ต",
+      "altEn": "JINA SERVICE Field crew conducting drain dredging in Phuket",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/drain-dredging/S__26050563.webp",
+      "th": "ฟื้นฟูระบบการไหลของท่อระบายน้ำรอบอาคาร",
+      "en": "Restoring full drainage capacity around buildings",
+      "altTh": "จินา เซอร์วิส ฟื้นฟูระบบการไหลของท่อระบายน้ำรอบอาคาร",
+      "altEn": "JINA SERVICE Restoring full drainage capacity around buildings",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/drain-dredging/S__26140680.webp",
+      "th": "ขุดลอกดินเลนและตะกอนสะสมออกจากท่อ",
+      "en": "Sediment and silt excavation from drainage lines",
+      "altTh": "จินา เซอร์วิส ขุดลอกดินเลนและตะกอนสะสมออกจากท่อ",
+      "altEn": "JINA SERVICE Sediment and silt excavation from drainage lines",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/drain-dredging/S__26165253.webp",
+      "th": "ตรวจสภาพท่อระบายน้ำหลังการขุดลอก",
+      "en": "Drain inspection following dredging work",
+      "altTh": "จินา เซอร์วิส ตรวจสภาพท่อระบายน้ำหลังการขุดลอก",
+      "altEn": "JINA SERVICE Drain inspection following dredging work",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/pond-dredging/2555855_0.webp",
+      "th": "กำจัดเลนและกากตะกอนก้นบ่อน้ำเสีย",
+      "en": "Bottom sludge and sediment removal from wastewater ponds",
+      "altTh": "จินา เซอร์วิส กำจัดเลนและกากตะกอนก้นบ่อน้ำเสีย",
+      "altEn": "JINA SERVICE Bottom sludge and sediment removal from wastewater ponds",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/pond-dredging/2555856_0.webp",
+      "th": "ฟื้นฟูประสิทธิภาพบ่อบำบัดน้ำเสีย",
+      "en": "Restoring wastewater treatment pond efficiency",
+      "altTh": "จินา เซอร์วิส ฟื้นฟูประสิทธิภาพบ่อบำบัดน้ำเสีย",
+      "altEn": "JINA SERVICE Restoring wastewater treatment pond efficiency",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/pond-dredging/2555857_0.webp",
+      "th": "ขุดลอกบ่อดักตะกอนสำหรับสถานประกอบการ",
+      "en": "Sediment retention pond dredging for commercial sites",
+      "altTh": "จินา เซอร์วิส ขุดลอกบ่อดักตะกอนสำหรับสถานประกอบการ",
+      "altEn": "JINA SERVICE Sediment retention pond dredging for commercial sites",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/pond-dredging/2555858_0.webp",
+      "th": "สูบและขุดลอกตะกอนบ่อน้ำเสียโรงงาน/โรงแรม",
+      "en": "Pond sludge suction for hotel and industrial sites",
+      "altTh": "จินา เซอร์วิส สูบและขุดลอกตะกอนบ่อน้ำเสียโรงงาน/โรงแรม",
+      "altEn": "JINA SERVICE Pond sludge suction for hotel and industrial sites",
+      "featured": false
+    },
+    {
+      "category": "dredge",
+      "type": "image",
+      "src": "./media/gallery-real/pond-dredging/2555859_0.webp",
+      "th": "ปฏิบัติงานขุดลอกบ่อน้ำเสียด้วยเครื่องมือเฉพาะทาง",
+      "en": "Specialized heavy equipment pond dredging operations",
+      "altTh": "จินา เซอร์วิส ปฏิบัติงานขุดลอกบ่อน้ำเสียด้วยเครื่องมือเฉพาะทาง",
+      "altEn": "JINA SERVICE Specialized heavy equipment pond dredging operations",
+      "featured": false
+    },
+    {
+      "category": "tank",
+      "type": "image",
+      "src": "./media/gallery-real/tank-install/IMG_4842.webp",
+      "th": "วางแนวท่อและเชื่อมต่อระบบถังบำบัดน้ำเสีย",
+      "en": "Pipe layout and septic tank connection work",
+      "altTh": "จินา เซอร์วิส วางแนวท่อและเชื่อมต่อระบบถังบำบัดน้ำเสีย",
+      "altEn": "JINA SERVICE Pipe layout and septic tank connection work",
+      "featured": false
+    },
+    {
+      "category": "tank",
+      "type": "image",
+      "src": "./media/gallery-real/tank-install/IMG_4845.webp",
+      "th": "ขุดหลุมและเตรียมฐานรากวางถังบำบัด",
+      "en": "Excavation and foundation prep for septic tanks",
+      "altTh": "จินา เซอร์วิส ขุดหลุมและเตรียมฐานรากวางถังบำบัด",
+      "altEn": "JINA SERVICE Excavation and foundation prep for septic tanks",
+      "featured": false
+    },
+    {
+      "category": "tank",
+      "type": "image",
+      "src": "./media/gallery-real/tank-install/IMG_4846.webp",
+      "th": "ตรวจระดับและทิศทางการไหลของน้ำเสีย",
+      "en": "Checking fall levels and wastewater flow direction",
+      "altTh": "จินา เซอร์วิส ตรวจระดับและทิศทางการไหลของน้ำเสีย",
+      "altEn": "JINA SERVICE Checking fall levels and wastewater flow direction",
+      "featured": false
+    },
+    {
+      "category": "tank",
+      "type": "image",
+      "src": "./media/gallery-real/tank-install/IMG_4847.webp",
+      "th": "ติดตั้งถังบำบัดน้ำเสียขนาดใหญ่สำหรับโครงการ",
+      "en": "Large-capacity treatment tank install for projects",
+      "altTh": "จินา เซอร์วิส ติดตั้งถังบำบัดน้ำเสียขนาดใหญ่สำหรับโครงการ",
+      "altEn": "JINA SERVICE Large-capacity treatment tank install for projects",
+      "featured": false
+    },
+    {
+      "category": "tank",
+      "type": "image",
+      "src": "./media/gallery-real/tank-install/IMG_4848.webp",
+      "th": "งานติดตั้งระบบบ่อเกรอะและถังบำบัดบ้านพัก",
+      "en": "Residential septic tank and soakaway installation",
+      "altTh": "จินา เซอร์วิส งานติดตั้งระบบบ่อเกรอะและถังบำบัดบ้านพัก",
+      "altEn": "JINA SERVICE Residential septic tank and soakaway installation",
+      "featured": false
+    },
+    {
+      "category": "tank",
+      "type": "image",
+      "src": "./media/gallery-real/tank-install/IMG_4849.webp",
+      "th": "ทดสอบการระบายน้ำและการทำงานของถังบำบัด",
+      "en": "Drainage testing and septic tank operational check",
+      "altTh": "จินา เซอร์วิส ทดสอบการระบายน้ำและการทำงานของถังบำบัด",
+      "altEn": "JINA SERVICE Drainage testing and septic tank operational check",
+      "featured": false
+    },
+    {
+      "category": "tank",
+      "type": "image",
+      "src": "./media/gallery-real/tank-install/IMG_4850.webp",
+      "th": "ส่งมอบงานวางระบบถังบำบัดน้ำเสียสมบูรณ์แบบ",
+      "en": "Completed septic system delivery and handover",
+      "altTh": "จินา เซอร์วิส ส่งมอบงานวางระบบถังบำบัดน้ำเสียสมบูรณ์แบบ",
+      "altEn": "JINA SERVICE Completed septic system delivery and handover",
+      "featured": false
+    },
+    {
+      "category": "fleet",
+      "type": "image",
+      "src": "./media/gallery-real/fleet-trucks/IMG_4911.webp",
+      "th": "รถดูดส้วมขนาดกะทัดรัด เข้าซอยแคบในภูเก็ตได้สะดวก",
+      "en": "Compact vacuum truck for narrow lane access in Phuket",
+      "altTh": "จินา เซอร์วิส รถดูดส้วมขนาดกะทัดรัด เข้าซอยแคบในภูเก็ตได้สะดวก",
+      "altEn": "JINA SERVICE Compact vacuum truck for narrow lane access in Phuket",
+      "featured": false
+    },
+    {
+      "category": "fleet",
+      "type": "image",
+      "src": "./media/gallery-real/fleet-trucks/IMG_8387.webp",
+      "th": "รถดูดส้วมความจุสูง รองรับงานโครงการและโรงแรม",
+      "en": "High-capacity vacuum tanker for hotels and projects",
+      "altTh": "จินา เซอร์วิส รถดูดส้วมความจุสูง รองรับงานโครงการและโรงแรม",
+      "altEn": "JINA SERVICE High-capacity vacuum tanker for hotels and projects",
+      "featured": false
+    },
+    {
+      "category": "fleet",
+      "type": "image",
+      "src": "./media/gallery-real/fleet-trucks/car01-1.webp",
+      "th": "อุปกรณ์สายดูดและระบบวาล์วควบคุมแรงดันมาตรฐาน",
+      "en": "Standard suction hoses and vacuum pressure control valves",
+      "altTh": "จินา เซอร์วิส อุปกรณ์สายดูดและระบบวาล์วควบคุมแรงดันมาตรฐาน",
+      "altEn": "JINA SERVICE Standard suction hoses and vacuum pressure control valves",
+      "featured": false
+    },
+    {
+      "category": "fleet",
+      "type": "image",
+      "src": "./media/gallery-real/fleet-trucks/car01-2.webp",
+      "th": "รถบริการตรวจสภาพพร้อมออกปฏิบัติงานตลอด 24 ชม.",
+      "en": "Fleet maintained and inspected for 24/7 readiness",
+      "altTh": "จินา เซอร์วิส รถบริการตรวจสภาพพร้อมออกปฏิบัติงานตลอด 24 ชม.",
+      "altEn": "JINA SERVICE Fleet maintained and inspected for 24/7 readiness",
+      "featured": false
+    },
+    {
+      "category": "fleet",
+      "type": "image",
+      "src": "./media/gallery-real/fleet-trucks/car01-4.webp",
+      "th": "กองทัพรถสูบสิ่งปฏิกูลครอบคลุมทุกพื้นที่ในภูเก็ต",
+      "en": "Vacuum fleet covering all districts across Phuket",
+      "altTh": "จินา เซอร์วิส กองทัพรถสูบสิ่งปฏิกูลครอบคลุมทุกพื้นที่ในภูเก็ต",
+      "altEn": "JINA SERVICE Vacuum fleet covering all districts across Phuket",
+      "featured": false
+    },
+    {
+      "category": "fleet",
+      "type": "image",
+      "src": "./media/gallery-real/fleet-trucks/car01-5.webp",
+      "th": "รถสูบน้ำเสียพร้อมระบบล้างทำความสะอาดแรงดันสูง",
+      "en": "Wastewater tanker with integrated high-pressure jetting",
+      "altTh": "จินา เซอร์วิส รถสูบน้ำเสียพร้อมระบบล้างทำความสะอาดแรงดันสูง",
+      "altEn": "JINA SERVICE Wastewater tanker with integrated high-pressure jetting",
+      "featured": false
+    },
+    {
+      "category": "fleet",
+      "type": "image",
+      "src": "./media/gallery-real/fleet-trucks/car02-2.webp",
+      "th": "รถดูดส้วมคุณภาพสูง ปฏิบัติงานสะอาดและรวดเร็ว",
+      "en": "Premium vacuum truck for clean and rapid operations",
+      "altTh": "จินา เซอร์วิส รถดูดส้วมคุณภาพสูง ปฏิบัติงานสะอาดและรวดเร็ว",
+      "altEn": "JINA SERVICE Premium vacuum truck for clean and rapid operations",
+      "featured": false
+    },
+    {
+      "category": "video",
+      "type": "video",
+      "src": "./media/gallery-real/videos/jinaserrvice-1.webm",
+      "th": "วิดีโอ: รถดูดส้วมพร้อมระบบปั๊มสูบแรงดันสูง",
+      "en": "Video: High-power vacuum suction truck on site",
+      "altTh": "จินา เซอร์วิส วิดีโอ: รถดูดส้วมพร้อมระบบปั๊มสูบแรงดันสูง",
+      "altEn": "JINA SERVICE Video: High-power vacuum suction truck on site",
+      "featured": false
+    },
+    {
+      "category": "video",
+      "type": "video",
+      "src": "./media/gallery-real/videos/jinaserrvice-2-car.webm",
+      "th": "วิดีโอ: ขั้นตอนการต่อสายและสูบน้ำเสียหน้างาน",
+      "en": "Video: Hose connection and pumping procedure",
+      "altTh": "จินา เซอร์วิส วิดีโอ: ขั้นตอนการต่อสายและสูบน้ำเสียหน้างาน",
+      "altEn": "JINA SERVICE Video: Hose connection and pumping procedure",
+      "featured": false
+    },
+    {
+      "category": "video",
+      "type": "video",
+      "src": "./media/gallery-real/videos/jinaserrvice-3.webm",
+      "th": "วิดีโอ: การทำงานของทีมช่างจินา เซอร์วิส ภูเก็ต",
+      "en": "Video: JINA SERVICE technical team at work",
+      "altTh": "จินา เซอร์วิส วิดีโอ: การทำงานของทีมช่างจินา เซอร์วิส ภูเก็ต",
+      "altEn": "JINA SERVICE Video: JINA SERVICE technical team at work",
+      "featured": false
+    },
+    {
+      "category": "video",
+      "type": "video",
+      "src": "./media/gallery-real/videos/jinaserrvice-6-car.webm",
+      "th": "วิดีโอ: งานขุดลอกและเปิดทางระบายน้ำ",
+      "en": "Video: Drain clearing and sediment dredging",
+      "altTh": "จินา เซอร์วิส วิดีโอ: งานขุดลอกและเปิดทางระบายน้ำ",
+      "altEn": "JINA SERVICE Video: Drain clearing and sediment dredging",
+      "featured": false
+    },
+    {
+      "category": "video",
+      "type": "video",
+      "src": "./media/gallery-real/videos/jinaserrvice-7.webm",
+      "th": "วิดีโอ: การสูบสิ่งปฏิกูลและตรวจสอบระดับน้ำเสีย",
+      "en": "Video: Waste extraction and tank level check",
+      "altTh": "จินา เซอร์วิส วิดีโอ: การสูบสิ่งปฏิกูลและตรวจสอบระดับน้ำเสีย",
+      "altEn": "JINA SERVICE Video: Waste extraction and tank level check",
+      "featured": false
+    },
+    {
+      "category": "video",
+      "type": "video",
+      "src": "./media/gallery-real/videos/jinaserrvice-8.webm",
+      "th": "วิดีโอ: การล้างทำความสะอาดและตรวจสอบระบบหลังสูบ",
+      "en": "Video: Post-service tank flushing and inspection",
+      "altTh": "จินา เซอร์วิส วิดีโอ: การล้างทำความสะอาดและตรวจสอบระบบหลังสูบ",
+      "altEn": "JINA SERVICE Video: Post-service tank flushing and inspection",
+      "featured": false
+    },
+    {
+      "category": "video",
+      "type": "video",
+      "src": "./media/gallery-real/videos/jinaserrvice-9.webm",
+      "th": "วิดีโอ: รถสูบสิ่งปฏิกูลจินา เซอร์วิส ปฏิบัติงานจริง",
+      "en": "Video: JINA SERVICE vacuum truck in action",
+      "altTh": "จินา เซอร์วิส วิดีโอ: รถสูบสิ่งปฏิกูลจินา เซอร์วิส ปฏิบัติงานจริง",
+      "altEn": "JINA SERVICE Video: JINA SERVICE vacuum truck in action",
+      "featured": false
+    }
+  ]
+}

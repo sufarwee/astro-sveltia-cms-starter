@@ -1,0 +1,604 @@
+[
+ {
+  "@context": "https://schema.org",
+  "@graph": [
+   {
+    "@type": "WebSite",
+    "@id": "__SITE__/#website",
+    "url": "__SITE__/",
+    "name": "JINA SERVICE",
+    "alternateName": "จินา เซอร์วิส ภูเก็ต",
+    "inLanguage": [
+     "th-TH",
+     "en"
+    ],
+    "publisher": { "@id": "__SITE__/#business" }
+   },
+   {
+    "@type": "WebPage",
+    "@id": "__SITE__/#webpage",
+    "url": "__SITE__/",
+    "name": "ดูดส้วม ภูเก็ต | สูบส้วม แก้ท่อตัน | JINA SERVICE",
+    "description": "บริการดูดส้วม สูบสิ่งปฏิกูล แก้ท่อตัน ล้างถังดักไขมันและดูแลงานระบบบำบัดทั่วภูเก็ต",
+    "isPartOf": {
+     "@id": "__SITE__/#website"
+    },
+    "about": {
+     "@id": "__SITE__/#business"
+    },
+    "image": [
+     {
+      "@id": "__SITE__/#standard-image-1"
+     },
+     {
+      "@id": "__SITE__/#standard-image-2"
+     },
+     {
+      "@id": "__SITE__/#standard-image-3"
+     }
+    ],
+    "inLanguage": "th-TH"
+   },
+   {
+    "@type": [
+     "PlumbingService",
+     "LocalBusiness",
+     "HomeAndConstructionBusiness"
+    ],
+    "@id": "__SITE__/#business",
+    "url": "__SITE__/",
+    "name": "JINA SERVICE LIMITED PARTNERSHIP",
+    "legalName": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส",
+    "alternateName": [
+     "JINA SERVICE",
+     "จินา เซอร์วิส"
+    ],
+    "description": "ผู้ให้บริการดูดส้วม สูบสิ่งปฏิกูล แก้ท่อตัน ขุดลอกท่อ ล้างถังดักไขมัน และงานระบบบำบัดทั่วจังหวัดภูเก็ต ประสบการณ์ 30 ปี",
+    "image": [
+     "__SITE__/jina-best-service-septic-tank-cleaning-phuket.webp",
+     "__SITE__/media/septic-drain-grease-pumping-cleaning-phuket.webp",
+     {
+      "@id": "__SITE__/#standard-image-1"
+     },
+     {
+      "@id": "__SITE__/#standard-image-2"
+     },
+     {
+      "@id": "__SITE__/#standard-image-3"
+     }
+    ],
+    "logo": {
+     "@type": "ImageObject",
+     "url": "__SITE__/media/jina-logo-light.webp",
+     "contentUrl": "__SITE__/media/jina-logo-light.webp"
+    },
+    "sameAs": [
+     "__FACEBOOK_URL__",
+     "__LINE_URL__",
+     "__MAPS_URL__"
+    ],
+    "telephone": "__PHONE__",
+    "email": "__EMAIL__",
+    "taxID": "__TAX_ID__",
+    "slogan": "เราไม่ได้แค่ดูดออก แต่ดูแลให้จบงาน",
+    "identifier": {
+     "@type": "PropertyValue",
+     "name": "เลขทะเบียนนิติบุคคล",
+     "value": "__TAX_ID__"
+    },
+    "contactPoint": [
+     {
+      "@type": "ContactPoint",
+      "name": "__PHONE_NAME__",
+      "telephone": "__PHONE_INTL__",
+      "contactType": "customer service",
+      "areaServed": "TH-83",
+      "availableLanguage": [
+       "Thai",
+       "English"
+      ]
+     },
+     {
+      "@type": "ContactPoint",
+      "name": "__PHONE2_NAME__",
+      "telephone": "__PHONE2_INTL__",
+      "contactType": "customer service",
+      "areaServed": "TH-83",
+      "availableLanguage": [
+       "Thai",
+       "English"
+      ]
+     }
+    ],
+    "openingHoursSpecification": {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+     ],
+     "opens": "00:00",
+     "closes": "23:59"
+    },
+    "address": {
+     "@type": "PostalAddress",
+     "addressLocality": "Phuket",
+     "addressRegion": "Phuket",
+     "addressCountry": "TH"
+    },
+    "geo": {
+     "@type": "GeoCoordinates",
+     "latitude": "__GEO_LAT__",
+     "longitude": "__GEO_LNG__"
+    },
+    "hasMap": "__MAPS_URL__",
+    "areaServed": [
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mueang Phuket (อำเภอเมืองภูเก็ต)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Kathu (อำเภอกะทู้)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Thalang (อำเภอถลาง)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Patong (ป่าตอง)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Cherngtalay (เชิงทะเล)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Chalong (ฉลอง)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Rawai (ราไวย์)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Kamala (กมลา)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Mai Khao (ไม้ขาว)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Karon (กะรน)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Ko Kaeo (เกาะแก้ว)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Ratsada (รัษฎา)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Wichit (วิชิต)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Thep Krasattri (เทพกระษัตรี)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Si Sunthon (ศรีสุนทร)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Pa Klok (ป่าคลอก)"
+     },
+     {
+      "@type": "AdministrativeArea",
+      "name": "Sakhu (สาคู)"
+     }
+    ],
+    "knowsAbout": [
+     {
+      "@type": "Thing",
+      "name": "Septic tank (ถังบำบัดน้ำเสีย/ถังเกรอะ)",
+      "sameAs": "https://www.wikidata.org/wiki/Q193630"
+     },
+     {
+      "@type": "Thing",
+      "name": "Cesspool (บ่อเกรอะ/บ่อซึม)",
+      "sameAs": "https://www.wikidata.org/wiki/Q1056586"
+     },
+     {
+      "@type": "Thing",
+      "name": "Plumbing (งานระบบท่อและสุขาภิบาล)",
+      "sameAs": "https://www.wikidata.org/wiki/Q129759"
+     },
+     {
+      "@type": "Thing",
+      "name": "Drain cleaner (การแก้ท่อตัน/ทะลวงท่อ)",
+      "sameAs": "https://www.wikidata.org/wiki/Q3249269"
+     },
+     {
+      "@type": "Thing",
+      "name": "Grease trap (ถังดักไขมัน)",
+      "sameAs": "https://www.wikidata.org/wiki/Q1474910"
+     },
+     {
+      "@type": "Thing",
+      "name": "Vacuum truck (รถดูดส้วม/สูบสิ่งปฏิกูล)",
+      "sameAs": "https://www.wikidata.org/wiki/Q15852504"
+     },
+     {
+      "@type": "Thing",
+      "name": "Wastewater treatment (การบำบัดน้ำเสีย)",
+      "sameAs": "https://www.wikidata.org/wiki/Q1134262"
+     },
+     {
+      "@type": "Place",
+      "name": "Phuket Province (จังหวัดภูเก็ต)",
+      "sameAs": "https://www.wikidata.org/wiki/Q182558"
+     }
+    ],
+    "priceRange": "฿฿",
+    "hasOfferCatalog": {
+     "@type": "OfferCatalog",
+     "name": "บริการสุขาภิบาลและระบบบำบัดในภูเก็ต",
+     "itemListElement": [
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-1",
+        "name": "บริการดูดส้วม สูบส้วม และสูบสิ่งปฏิกูล ภูเก็ต",
+        "alternateName": "Septic tank pumping in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      },
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-2",
+        "name": "บริการแก้ไขท่อตันด้วยงูเหล็ก ภูเก็ต",
+        "alternateName": "Blocked drain clearing in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      },
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-3",
+        "name": "บริการล้างหรือติดตั้งถังดักไขมัน ภูเก็ต",
+        "alternateName": "Grease trap cleaning and installation in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      },
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-4",
+        "name": "บริการขุดลอกท่อระบายน้ำ ภูเก็ต",
+        "alternateName": "Drainage dredging in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      },
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-5",
+        "name": "บริการล้างทำความสะอาดถังเก็บน้ำ ภูเก็ต",
+        "alternateName": "Water tank cleaning in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      },
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-6",
+        "name": "บริการวางระบบถังบำบัด ภูเก็ต",
+        "alternateName": "Wastewater treatment system installation in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      },
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-7",
+        "name": "บริการวางและย้ายระบบท่อน้ำ ภูเก็ต",
+        "alternateName": "Water pipe installation and relocation in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      },
+      {
+       "@type": "Offer",
+       "url": "__SITE__/#services",
+       "availability": "https://schema.org/InStock",
+       "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Phuket"
+       },
+       "itemOffered": {
+        "@type": "Service",
+        "@id": "__SITE__/#service-8",
+        "name": "บริการซ่อมและติดตั้งสุขภัณฑ์ ภูเก็ต",
+        "alternateName": "Sanitary fixture repair and installation in Phuket",
+        "provider": {
+         "@id": "__SITE__/#business"
+        },
+        "areaServed": "Phuket"
+       }
+      }
+     ]
+    },
+    "currenciesAccepted": "THB",
+    "paymentAccepted": "Cash, PromptPay, Bank Transfer, Mobile Banking",
+    "aggregateRating": {
+     "@type": "AggregateRating",
+     "ratingValue": "__RATING__",
+     "reviewCount": "__REVIEW_COUNT__",
+     "bestRating": "5",
+     "worstRating": "1"
+    },
+    "review": [
+     {
+      "@type": "Review",
+      "author": {
+       "@type": "Person",
+       "name": "ลูกค้าบ้านพัก ฉลอง"
+      },
+      "datePublished": "2026-10-15",
+      "reviewBody": "นัดเช้า ทีมมาตรงเวลา อธิบายก่อนทำ และเก็บพื้นที่หน้าบ้านสะอาดดีมาก",
+      "reviewRating": {
+       "@type": "Rating",
+       "ratingValue": "5",
+       "bestRating": "5",
+       "worstRating": "1"
+      }
+     },
+     {
+      "@type": "Review",
+      "author": {
+       "@type": "Person",
+       "name": "ผู้จัดการร้านอาหาร ป่าตอง"
+      },
+      "datePublished": "2026-10-22",
+      "reviewBody": "จัดรอบดูแลบ่อดักไขมันให้ครัวได้ชัดเจน ลดปัญหากลิ่นช่วงลูกค้าเยอะ",
+      "reviewRating": {
+       "@type": "Rating",
+       "ratingValue": "5",
+       "bestRating": "5",
+       "worstRating": "1"
+      }
+     },
+     {
+      "@type": "Review",
+      "author": {
+       "@type": "Person",
+       "name": "ผู้ดูแลอาคาร เมืองภูเก็ต"
+      },
+      "datePublished": "2026-11-02",
+      "reviewBody": "ติดต่อสะดวก ส่งตำแหน่งแล้วประเมินเบื้องต้นได้เลย งานเรียบร้อยและสื่อสารดี",
+      "reviewRating": {
+       "@type": "Rating",
+       "ratingValue": "5",
+       "bestRating": "5",
+       "worstRating": "1"
+      }
+     }
+    ]
+   },
+   {
+    "@type": "ImageObject",
+    "@id": "__SITE__/#standard-image-1",
+    "contentUrl": "__SITE__/media/jina-standard-1.webp",
+    "caption": "จินา แก้ไขท่อตัน ดูดส้วม สูบส้วม วางระบบท่อและจัดการถังดักไขมันในภูเก็ต",
+    "inLanguage": "th-TH"
+   },
+   {
+    "@type": "ImageObject",
+    "@id": "__SITE__/#standard-image-2",
+    "contentUrl": "__SITE__/media/jina-standard-2.webp",
+    "caption": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส บริการสูบสิ่งปฏิกูลและแก้ไขท่อตันมาตรฐานสากลทั่วภูเก็ต",
+    "inLanguage": "th-TH"
+   },
+   {
+    "@type": "ImageObject",
+    "@id": "__SITE__/#standard-image-3",
+    "contentUrl": "__SITE__/media/jina-standard-3.webp",
+    "caption": "จินาเซอร์วิส กำจัดสิ่งปฏิกูลครบวงจรภูเก็ต พร้อมรถสูบสิ่งปฏิกูลมาตรฐาน",
+    "inLanguage": "th-TH"
+   },
+   {
+    "@type": "VideoObject",
+    "@id": "__SITE__/#video-1",
+    "name": "วิดีโอ: รถดูดส้วมพร้อมระบบปั๊มสูบแรงดันสูง — จินา เซอร์วิส ภูเก็ต",
+    "description": "ชมขั้นตอนการทำงานของรถดูดส้วมขนาดใหญ่พร้อมระบบปั๊มสูบสุญญากาศแรงดันสูง เข้าจัดการสูบสิ่งปฏิกูลและน้ำเสียทั่วภูเก็ต 24 ชม.",
+    "thumbnailUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-1-poster.jpg",
+    "contentUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-1.webm",
+    "uploadDate": "2026-11-01T09:00:00+07:00",
+    "duration": "PT0M45S",
+    "caption": "วิดีโอ: รถดูดส้วมพร้อมระบบปั๊มสูบแรงดันสูง — จินา เซอร์วิส ภูเก็ต",
+    "inLanguage": "th-TH",
+    "publisher": { "@type": "Organization", "@id": "__SITE__/#business", "name": "JINA SERVICE LIMITED PARTNERSHIP" }
+   },
+   {
+    "@type": "VideoObject",
+    "@id": "__SITE__/#video-2",
+    "name": "วิดีโอ: ขั้นตอนการต่อสายและสูบน้ำเสียหน้างาน — จินา เซอร์วิส ภูเก็ต",
+    "description": "สาธิตการต่อสายดูดระยะไกลและขั้นตอนการดูดบ่อเกรอะ บ่อน้ำเสียอย่างปลอดภัย ไม่ส่งกลิ่นรบกวนพื้นที่ใกล้เคียง",
+    "thumbnailUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-2-car-poster.jpg",
+    "contentUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-2-car.webm",
+    "uploadDate": "2026-11-01T09:00:00+07:00",
+    "duration": "PT0M50S",
+    "caption": "วิดีโอ: ขั้นตอนการต่อสายและสูบน้ำเสียหน้างาน — จินา เซอร์วิส ภูเก็ต",
+    "inLanguage": "th-TH",
+    "publisher": { "@type": "Organization", "@id": "__SITE__/#business", "name": "JINA SERVICE LIMITED PARTNERSHIP" }
+   },
+   {
+    "@type": "VideoObject",
+    "@id": "__SITE__/#video-3",
+    "name": "วิดีโอ: การทำงานของทีมช่างจินา เซอร์วิส ภูเก็ต",
+    "description": "ทีมช่างประสบการณ์ 30 ปี ดูแลงานระบบบำบัดน้ำเสีย ส้วมเต็ม ท่อตัน ล้างถังบำบัดทั่วภูเก็ต",
+    "thumbnailUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-3-poster.jpg",
+    "contentUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-3.webm",
+    "uploadDate": "2026-11-01T09:00:00+07:00",
+    "duration": "PT1M10S",
+    "caption": "วิดีโอ: การทำงานของทีมช่างจินา เซอร์วิส ภูเก็ต",
+    "inLanguage": "th-TH",
+    "publisher": { "@type": "Organization", "@id": "__SITE__/#business", "name": "JINA SERVICE LIMITED PARTNERSHIP" }
+   },
+   {
+    "@type": "VideoObject",
+    "@id": "__SITE__/#video-4",
+    "name": "วิดีโอ: งานขุดลอกท่อระบายน้ำและเปิดทางระบายน้ำภูเก็ต",
+    "description": "ปฏิบัติการขุดลอกท่อเมนและนำดินโคลนตะกอนออกจากแนวท่อระบายน้ำ แก้ปัญหาน้ำเอ่อล้น",
+    "thumbnailUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-6-car-poster.jpg",
+    "contentUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-6-car.webm",
+    "uploadDate": "2026-11-01T09:00:00+07:00",
+    "duration": "PT0M55S",
+    "caption": "วิดีโอ: งานขุดลอกท่อระบายน้ำและเปิดทางระบายน้ำภูเก็ต",
+    "inLanguage": "th-TH",
+    "publisher": { "@type": "Organization", "@id": "__SITE__/#business", "name": "JINA SERVICE LIMITED PARTNERSHIP" }
+   },
+   {
+    "@type": "VideoObject",
+    "@id": "__SITE__/#video-5",
+    "name": "วิดีโอ: การสูบสิ่งปฏิกูลและตรวจสอบระดับน้ำเสียในถังบำบัด",
+    "description": "ตรวจวัดระดับกากตะกอนในถังบำบัดและสูบออกจนเกลี้ยง พร้อมตรวจสอบการไหลเวียนของระบบ",
+    "thumbnailUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-7-poster.jpg",
+    "contentUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-7.webm",
+    "uploadDate": "2026-11-01T09:00:00+07:00",
+    "duration": "PT1M05S",
+    "caption": "วิดีโอ: การสูบสิ่งปฏิกูลและตรวจสอบระดับน้ำเสียในถังบำบัด",
+    "inLanguage": "th-TH",
+    "publisher": { "@type": "Organization", "@id": "__SITE__/#business", "name": "JINA SERVICE LIMITED PARTNERSHIP" }
+   },
+   {
+    "@type": "VideoObject",
+    "@id": "__SITE__/#video-6",
+    "name": "วิดีโอ: การล้างทำความสะอาดและตรวจสอบระบบหลังสูบส้วม",
+    "description": "ขั้นตอนการฉีดล้างทำความสะอาดบริเวณรอบปากบ่อและตรวจสอบความเรียบร้อยก่อนส่งมอบงาน",
+    "thumbnailUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-8-poster.jpg",
+    "contentUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-8.webm",
+    "uploadDate": "2026-11-01T09:00:00+07:00",
+    "duration": "PT0M40S",
+    "caption": "วิดีโอ: การล้างทำความสะอาดและตรวจสอบระบบหลังสูบส้วม",
+    "inLanguage": "th-TH",
+    "publisher": { "@type": "Organization", "@id": "__SITE__/#business", "name": "JINA SERVICE LIMITED PARTNERSHIP" }
+   },
+   {
+    "@type": "VideoObject",
+    "@id": "__SITE__/#video-7",
+    "name": "วิดีโอ: รถสูบสิ่งปฏิกูลจินา เซอร์วิส ปฏิบัติงานจริงทั่วภูเก็ต",
+    "description": "ความพร้อมของกองยานพาหนะรถสูบส้วม รถดูดสิ่งปฏิกูล พร้อมให้บริการด่วน 24 ชั่วโมงทั้งเกาะภูเก็ต",
+    "thumbnailUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-9-poster.jpg",
+    "contentUrl": "__SITE__/media/gallery-real/videos/jinaserrvice-9.webm",
+    "uploadDate": "2026-11-01T09:00:00+07:00",
+    "duration": "PT1M15S",
+    "caption": "วิดีโอ: รถสูบสิ่งปฏิกูลจินา เซอร์วิส ปฏิบัติงานจริงทั่วภูเก็ต",
+    "inLanguage": "th-TH",
+    "publisher": { "@type": "Organization", "@id": "__SITE__/#business", "name": "JINA SERVICE LIMITED PARTNERSHIP" }
+   }
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "__SITE__/#main-service",
+  "name": "บริการดูดส้วม สูบส้วม และแก้ไขท่อตัน ทั่วภูเก็ต 24 ชม.",
+  "serviceType": "Septic Pumping & Plumbing Service",
+  "provider": {
+   "@id": "__SITE__/#business"
+  },
+  "areaServed": {
+   "@type": "AdministrativeArea",
+   "name": "Phuket"
+  },
+  "description": "บริการดูดส้วม สูบสิ่งปฏิกูล ล้างบ่อเกรอะ แก้ไขท่อตันด้วยงูเหล็ก ล้างถังดักไขมัน และวางระบบบำบัดน้ำเสียทั่วเกาะภูเก็ต 17 ตำบล 24 ชั่วโมง",
+  "termsOfService": "ประเมินราคาก่อนเริ่มงาน รับประกันผลงานตามประเภทงาน 1-12 เดือน",
+  "aggregateRating": {
+   "@type": "AggregateRating",
+   "ratingValue": "__RATING__",
+   "reviewCount": "__REVIEW_COUNT__",
+   "bestRating": "5",
+   "worstRating": "1"
+  }
+ }
+]

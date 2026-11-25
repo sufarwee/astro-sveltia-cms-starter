@@ -1,0 +1,81 @@
+{
+  "headingTh": "บริการดูดส้วม สูบส้วม ภูเก็ต ครบวงจร",
+  "headingEn": "Septic & Waste Pumping",
+  "leadTh": "ตั้งแต่งานบ้านเร่งด่วน ไปจนถึงแผนดูแลอาคารเชิงป้องกัน ทีมเดียวดูแลครบและสื่อสารตรงไปตรงมา",
+  "leadEn": "From urgent home callouts to commercial preventative plans,\nour certified team provides reliable care with clear pricing.",
+  "items": [
+    {
+      "title": "สูบส้วม น้ำเสีย ไขมัน และสิ่งปฏิกูลทุกประเภท",
+      "titleEn": "All Wastewater, Grease & Septic Pumping",
+      "desc": "รองรับบ่อส้วม บ่อเกรอะ น้ำเสีย ไขมัน และระบบกักเก็บทุกประเภท ด้วยรถและอุปกรณ์เฉพาะทาง",
+      "descEn": "Septic tanks, cesspits, wastewater, grease and holding systems serviced with purpose-built equipment.",
+      "price": "เริ่มต้น ฿1,xxx*",
+      "priceEn": "Start ฿1,xxx*"
+    },
+    {
+      "title": "บริการแก้ไขท่อตัน (งูเหล็ก)",
+      "titleEn": "Blocked-Drain Clearing (Drain Snake)",
+      "desc": "ใช้เครื่องงูเหล็กเปิดทางระบายน้ำสำหรับท่อครัว ห้องน้ำ และท่อเมน แก้ปัญหาได้ตรงจุด",
+      "descEn": "Drain-snake clearing for kitchen, bathroom and main drain lines, targeting the actual blockage.",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation"
+    },
+    {
+      "title": "ล้างหรือติดตั้งถังดักไขมัน",
+      "titleEn": "Grease Trap Cleaning & Installation",
+      "desc": "ทำความสะอาดและติดตั้งถังดักไขมัน สำหรับบ้าน ร้านอาหาร โรงแรม และครัวเชิงพาณิชย์",
+      "descEn": "Grease-trap cleaning and installation for homes, restaurants, hotels and commercial kitchens.",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation"
+    },
+    {
+      "title": "บริการขุดลอกท่อ",
+      "titleEn": "Drain Pipe Dredging",
+      "desc": "ขุดลอกและนำตะกอนหรือสิ่งอุดตันออกจากท่อระบายน้ำ เพื่อคืนการไหลและลดปัญหาน้ำเอ่อ",
+      "descEn": "Dredging removes sediment and blockages to restore flow and reduce wastewater backup.",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation"
+    },
+    {
+      "title": "บริการล้างทำความสะอาดถังเก็บน้ำ",
+      "titleEn": "Water Storage Tank Cleaning",
+      "desc": "ล้างทำความสะอาดถังเก็บน้ำอย่างเป็นขั้นตอน สำหรับบ้านพัก ธุรกิจ และอาคารทุกประเภท",
+      "descEn": "Step-by-step water tank cleaning for homes, businesses and managed properties.",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation"
+    },
+    {
+      "title": "บริการวางระบบถังบำบัด",
+      "titleEn": "Septic Tank System Installation",
+      "desc": "สำรวจพื้นที่ วางแผน และติดตั้งระบบถังบำบัดให้เหมาะกับการใช้งานของแต่ละอาคาร",
+      "descEn": "Site survey, planning and septic system installation matched to each property.",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation"
+    },
+    {
+      "title": "บริการวางและย้ายระบบท่อน้ำ",
+      "titleEn": "Water Pipe Laying & Relocation",
+      "desc": "วางระบบหรือย้ายแนวท่อน้ำให้เหมาะกับพื้นที่และการใช้งาน พร้อมประเมินหน้างานก่อนเริ่ม",
+      "descEn": "Water pipe installation or relocation planned around the site and its daily use.",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation"
+    },
+    {
+      "title": "บริการทุกประเภทเกี่ยวกับสุขภัณฑ์",
+      "titleEn": "All Sanitary Fixture Services",
+      "desc": "ตรวจ ซ่อม ติดตั้ง และดูแลงานสุขภัณฑ์ ห้องน้ำ หรืออะไหล่ตามสภาพหน้างาน",
+      "descEn": "Inspection, repair and installation of toilets, sanitary fixtures and replacement parts.",
+      "price": "ประเมินตามหน้างาน",
+      "priceEn": "Site quotation"
+    }
+  ],
+  "promise": {
+    "enabled": true,
+    "titleTh": "บริการมีคุณภาพ ตรงเวลา",
+    "titleEn": "Quality service, always on time",
+    "textTh": "แจ้งขอบเขตและราคาก่อนเริ่มงาน ไม่มีค่าใช้จ่ายแอบแฝง",
+    "textEn": "We confirm the scope and price before work begins.\nNo hidden call-out charges.",
+    "buttonTh": "ขอประเมินฟรี",
+    "buttonEn": "Free Quote"
+  }
+}

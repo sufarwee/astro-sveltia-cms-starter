@@ -1,0 +1,325 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import siteSettings from '../../data/settings.json';
+import { contact } from '../../lib/contact';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (post) => siteSettings.blogEnabled !== false && post.data.published);
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { title, description, pubDate, updatedDate, author, authorRole, category, coverImage, coverAlt } = post.data;
+
+const SITE = new URL(siteSettings.canonicalUrl).origin;
+const canonicalUrl = `${SITE}/blog/${post.slug}/`;
+const fullCoverImage = new URL(coverImage, SITE).href;
+const dateStr = typeof pubDate === 'string' ? pubDate : pubDate.toISOString().split('T')[0];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#article`,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "headline": title,
+  "description": description,
+  "image": [fullCoverImage],
+  "datePublished": dateStr,
+  "dateModified": updatedDate ? (typeof updatedDate === "string" ? updatedDate : updatedDate.toISOString().split("T")[0]) : dateStr,
+  "author": {
+    "@type": "Person",
+    "name": author,
+    "jobTitle": authorRole,
+    "worksFor": {
+      "@type": "Organization",
+      "name": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส",
+      "url": `${SITE}/`
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${SITE}/media/jina-logo-light.webp`
+    }
+  },
+  "inLanguage": "th-TH"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าหลัก",
+      "item": `${SITE}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "สาระน่ารู้",
+      "item": `${SITE}/blog/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": title,
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const siteSuffix = " | JINA SERVICE";
+const pageTitle = title.length + siteSuffix.length > 65 
+  ? `${title.slice(0, 65 - siteSuffix.length - 1).trim()}…${siteSuffix}`
+  : `${title}${siteSuffix}`;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  canonical={canonicalUrl}
+  ogImage={fullCoverImage}
+  ogTitle={title}
+  ogType="article"
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={dateStr} />
+    <meta property="article:author" content={author} />
+    <meta property="article:section" content={category} />
+  </Fragment>
+
+  <!-- Navigation Bar -->
+  <header class="topbar">
+    <a class="brand image-brand jina-lockup" href="/" aria-label="JINA SERVICE Phuket"><span class="jina-wordmark" aria-hidden="true">{siteSettings.logo.wordmark}</span><span class="jina-brandline" aria-hidden="true">{siteSettings.logo.line} <b>{siteSettings.logo.highlight}</b></span></a>
+    <nav>
+      <a href="/#services">บริการ</a>
+      <a href="/#gallery">แกลเลอรี</a>
+      <a href="/#standards">มาตรฐาน</a>
+      <a href="/#pricing">ราคา</a>
+      <a href="/#coverage">พื้นที่บริการ</a>
+      <a href="/blog/" class="active" style="color: var(--jina-green, #0aa84f); font-weight: 700;">บทความ</a>
+      <a href="/#faq">คำถามพบบ่อย</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle-btn" id="theme-toggle-btn" aria-label="Switch color mode">◐</button>
+      <a class="mini-cta" href={contact.tel} data-track="urgent_contact">☎ {contact.phoneDisplay}</a>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px; padding-bottom: 80px; min-height: 80vh;">
+    <!-- Breadcrumb -->
+    <div class="wrap" style="margin-bottom: 24px;">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb" style="font-size: 14px; color: var(--jina-muted, #53655b);">
+        <ol style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; gap: 8px; align-items: center;">
+          <li><a href="/" style="color: inherit; text-decoration: none;">หน้าหลัก</a></li>
+          <li aria-hidden="true" style="opacity: 0.6;">/</li>
+          <li><a href="/blog/" style="color: inherit; text-decoration: none;">สาระน่ารู้</a></li>
+          <li aria-hidden="true" style="opacity: 0.6;">/</li>
+          <li aria-current="page" style="color: var(--jina-green, #0aa84f); font-weight: 700;">{category}</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Article Content -->
+    <article class="wrap article-container" style="max-width: 860px; margin: 0 auto;">
+      <header class="article-header" style="margin-bottom: 32px;">
+        <span class="category-pill" style="display: inline-block; background: color-mix(in srgb, var(--jina-green) 14%, transparent); color: var(--jina-green, #0aa84f); padding: 4px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 12px; border: 1px solid color-mix(in srgb, var(--jina-green) 30%, transparent);">
+          {category}
+        </span>
+        <h1 style="font-size: clamp(26px, 4vw, 38px); line-height: 1.35; font-weight: 800; margin: 8px 0 16px 0; color: var(--jina-text);">
+          {title}
+        </h1>
+        <p style="font-size: 17px; line-height: 1.65; color: var(--jina-muted); margin-bottom: 24px;">
+          {description}
+        </p>
+
+        <!-- E-E-A-T Author Card -->
+        <div class="eeat-byline" style="display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 12px; background: var(--jina-surface); border: 1px solid var(--jina-border); margin-bottom: 28px; box-shadow: var(--jina-shadow);">
+          <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--jina-green); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">
+            ✓
+          </div>
+          <div>
+            <div style="font-weight: 700; font-size: 14.5px; color: var(--jina-text);">เขียนและตรวจสอบโดย: <span style="color: var(--jina-green);" itemprop="author">{author}</span></div>
+            <div style="font-size: 12.5px; color: var(--jina-muted); margin-top: 2px;">
+              {authorRole} • เผยแพร่เมื่อ <time itemprop="datePublished" datetime={dateStr}>{dateStr}</time> • อ่านประมาณ 8 นาที
+            </div>
+          </div>
+        </div>
+
+        <!-- Cover Image -->
+        <div class="cover-wrapper" style="border-radius: 16px; overflow: hidden; box-shadow: var(--jina-shadow); margin-bottom: 36px; border: 1px solid var(--jina-border);">
+          <img src={coverImage} alt={coverAlt} width="860" height="480" fetchpriority="high" style="width: 100%; height: auto; aspect-ratio: 860 / 480; object-fit: cover; display: block;" />
+        </div>
+      </header>
+
+      <!-- Markdown Prose Body -->
+      <div class="article-body prose-content">
+        <Content />
+      </div>
+
+      <!-- Emergency Help Box -->
+      <div class="article-footer-cta" style="margin-top: 48px; padding: 32px 24px; border-radius: 16px; background: var(--jina-surface); border: 1.5px solid var(--jina-border); text-align: center; box-shadow: var(--jina-shadow);">
+        <h3 style="margin-top: 0; font-size: 24px; font-weight: 800; color: var(--jina-green);">เจอปัญหาส้วมตัน ท่อตัน หน้างานจริงในภูเก็ต?</h3>
+        <p style="font-size: 15.5px; color: var(--jina-muted); max-width: 600px; margin: 10px auto 24px auto; line-height: 1.6;">
+          ทีมช่าง จินา เซอร์วิส ยินดีให้คำปรึกษาและเข้าประเมินหน้างานฟรี ทั่วภูเก็ต 17 ตำบล ตลอด 24 ชม. รวดเร็ว ปลอดภัย ไม่ต้องทนกับปัญหากลิ่นและน้ำเอ่อล้น
+        </p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href={contact.tel} style="background: var(--jina-green); color: #06140b; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(10,168,79,0.35);">
+            ☎ โทรด่วน {contact.phoneDisplay}
+          </a>
+          <a href={contact.lineUrl} target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #06140b; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+            💬 ปรึกษาฟรีทาง LINE
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
+
+  <!-- Theme Toggle Script -->
+  <script is:inline>
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryTheme = urlParams.get('theme');
+      const savedTheme = queryTheme || localStorage.getItem('jina-theme') || 'dark';
+      document.documentElement.dataset.theme = savedTheme;
+      
+      const themeBtn = document.getElementById('theme-toggle-btn');
+      if (themeBtn) {
+        themeBtn.textContent = savedTheme === 'dark' ? '☀' : '◐';
+        themeBtn.addEventListener('click', function() {
+          const currentTheme = document.documentElement.dataset.theme;
+          const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = nextTheme;
+          localStorage.setItem('jina-theme', nextTheme);
+          themeBtn.textContent = nextTheme === 'dark' ? '☀' : '◐';
+        });
+      }
+    })();
+  </script>
+</BaseLayout>
+
+<style is:global>
+  .prose-content {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: var(--jina-text);
+  }
+  .prose-content h2 {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 800;
+    margin-top: 44px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--jina-border);
+    color: var(--jina-text);
+  }
+  .prose-content h3 {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 700;
+    margin-top: 32px;
+    margin-bottom: 14px;
+    color: var(--jina-text);
+  }
+  .prose-content h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    color: var(--jina-text);
+  }
+  .prose-content p {
+    margin-bottom: 20px;
+    color: var(--jina-text);
+  }
+  .prose-content strong, .prose-content b {
+    color: var(--jina-text);
+    font-weight: 700;
+  }
+  .prose-content ul, .prose-content ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+    color: var(--jina-text);
+  }
+  .prose-content li {
+    margin-bottom: 10px;
+    color: var(--jina-text);
+  }
+  .prose-content a {
+    color: var(--jina-green);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 600;
+  }
+  .prose-content a:hover {
+    color: var(--jina-green-strong);
+  }
+  .prose-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 14.5px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--jina-border);
+    background: var(--jina-surface);
+  }
+  /* Phones: let wide tables scroll sideways instead of squeezing every column */
+  @media (max-width: 600px) {
+    .prose-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .prose-content th, .prose-content td { min-width: 150px; }
+  }
+  .prose-content th, .prose-content td {
+    padding: 13px 16px;
+    border: 1px solid var(--jina-border);
+    text-align: left;
+    color: var(--jina-text);
+  }
+  .prose-content th {
+    background: var(--jina-surface-2);
+    font-weight: 700;
+    color: var(--jina-green);
+  }
+  .prose-content blockquote {
+    margin: 28px 0;
+    padding: 18px 24px;
+    background: var(--jina-surface-2);
+    border-left: 4px solid var(--jina-green);
+    border-radius: 0 12px 12px 0;
+    font-size: 15.5px;
+    color: var(--jina-text);
+  }
+  .prose-content blockquote p {
+    margin-bottom: 0;
+    color: inherit;
+  }
+  .prose-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin: 24px 0;
+    border: 1px solid var(--jina-border);
+    box-shadow: var(--jina-shadow);
+  }
+  .prose-content hr {
+    border: 0;
+    height: 1px;
+    background: var(--jina-border);
+    margin: 36px 0;
+  }
+</style>

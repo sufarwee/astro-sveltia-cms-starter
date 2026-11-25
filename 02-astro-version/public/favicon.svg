@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="100" ry="100" fill="#080d0a"/>
+  <!-- JINA bold white lettering -->
+  <text x="256" y="270" text-anchor="middle" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="168" letter-spacing="4">JINA</text>
+  <!-- SERVICE PHUKET vibrant green subline -->
+  <text x="256" y="340" text-anchor="middle" fill="#0aa84f" font-family="-apple-system, BlinkMacSystemFont, 'Impact', 'Arial Black', sans-serif" font-weight="800" font-size="44" letter-spacing="6">SERVICE PHUKET</text>
+</svg>

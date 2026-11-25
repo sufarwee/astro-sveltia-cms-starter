@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import siteSettings from "../data/settings.json";
+import { contact } from "../lib/contact";
+---
+<BaseLayout title="ไม่พบหน้านี้ | JINA SERVICE ภูเก็ต" description="ไม่พบหน้าที่คุณค้นหา กลับไปหน้าหลักของ JINA SERVICE บริการดูดส้วม สูบส้วม แก้ท่อตัน ภูเก็ต" noindex>
+  <main class="section wrap" style="min-height:70vh;display:grid;place-content:center;text-align:center;gap:18px;padding-block:96px;">
+    <p class="kicker" style="justify-content:center;">404</p>
+    <h1 style="margin:0;">ไม่พบหน้าที่คุณค้นหา</h1>
+    <p style="margin:0;color:var(--jina-muted);">ลิงก์อาจถูกย้ายหรือพิมพ์ผิด ลองกลับไปที่หน้าหลัก หรือโทรหาเราได้ตลอด 24 ชม.</p>
+    <p style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:8px 0 0;">
+      <a class="button primary" href="/">กลับหน้าหลัก</a>
+      <a class="button ghost" href={contact.tel}>☎ {contact.phoneDisplay}</a>
+      {siteSettings.blogEnabled !== false && <a class="button ghost" href="/blog/">อ่านบทความ</a>}
+    </p>
+  </main>
+</BaseLayout>

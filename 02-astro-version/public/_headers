@@ -1,0 +1,65 @@
+# Cloudflare Pages Custom Headers
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/sitemap-index.xml
+  Content-Type: application/xml; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photos rarely change in place (new uploads get new names); revalidate in the background
+/media/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# Phone hero crop: the file name is a hash of the source image, so a changed image gets a new name
+/hero-m-*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Always requested as standalone.js?v=...; bump v when it changes
+/standalone.js
+  Cache-Control: public, max-age=2592000
+
+# Root images and icons (listed one by one: a /*.webp splat would also match /media/* and /hero-m-*,
+# and Cloudflare joins the values of every matching rule). Revalidate in the background.
+/jina-best-service-septic-tank-cleaning-phuket.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/favicon.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/favicon-dark.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/favicon-light.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/favicon-16x16.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/favicon-32x32.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/android-chrome-192x192.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/android-chrome-512x512.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+/site.webmanifest
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400

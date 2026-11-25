@@ -1,0 +1,51 @@
+{
+  "eyebrow": {
+    "th": "ทีมช่างภูเก็ต • ประสบการณ์ 30 ปี",
+    "en": "Phuket Technicians • 30 Years Experience"
+  },
+  "heading": {
+    "line1Th": "ดูดส้วม สูบส้วม แก้ท่อตัน",
+    "line2Th": "ครบงานระบบบำบัดทั่วภูเก็ต",
+    "line1En": "Septic & Drain Care",
+    "line2En": "Across All Phuket"
+  },
+  "lead": {
+    "th": "บริการดูดส้วม สูบสิ่งปฏิกูล ล้างถังบำบัด–ถังดักไขมัน แก้ท่อตัน ติดตั้งระบบบำบัด และซ่อมอะไหล่สุขภัณฑ์ สำหรับบ้าน ธุรกิจ โรงแรม และองค์กรทั่วภูเก็ต",
+    "en": "Fast septic pumping, grease trap cleaning, and drain clearing for homes, hotels, and businesses across Phuket."
+  },
+  "badges": [
+    {
+      "th": "✓ บริษัทจดทะเบียนถูกต้อง",
+      "en": "✓ Licensed & Registered"
+    },
+    {
+      "th": "✓ นัดหมายตรงเวลา",
+      "en": "✓ Punctual Appointment"
+    },
+    {
+      "th": "✓ ดูแลพื้นที่หลังจบงาน",
+      "en": "✓ Post-Job Site Cleanup"
+    },
+    {
+      "th": "✓ ความเชี่ยวชาญสูง",
+      "en": "✓ High Expertise"
+    }
+  ],
+  "slides": [
+    {
+      "name": "ภาพที่ 1 (รถดูดส้วมและทีมช่างหลัก)",
+      "image": "/jina-best-service-septic-tank-cleaning-phuket.webp",
+      "position": "67%"
+    },
+    {
+      "name": "ภาพที่ 2 (ขบวนรถสูบสิ่งปฏิกูล)",
+      "image": "/media/septic-drain-grease-pumping-cleaning-phuket.webp",
+      "position": "50%"
+    },
+    {
+      "name": "ภาพที่ 3 (งาน AirAsia)",
+      "image": "/media/gallery-real/airasia/jina-airasia-01.webp",
+      "position": "center"
+    }
+  ]
+}

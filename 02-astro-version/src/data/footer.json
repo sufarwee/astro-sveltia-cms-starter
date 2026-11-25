@@ -1,0 +1,66 @@
+{
+  "registrationLabel": "จดทะเบียนถูกต้องตามกฎหมาย",
+  "columns": [
+    {
+      "title": "บริการ",
+      "links": [
+        {
+          "text": "จัดการสิ่งปฏิกูล ทุกประเภท",
+          "textEn": "All Waste & Septic Services",
+          "url": "#services"
+        },
+        {
+          "text": "ดูดส้วม สูบส้วม",
+          "textEn": "",
+          "url": "#services"
+        },
+        {
+          "text": "งานทะลวงท่อตัน",
+          "textEn": "",
+          "url": "#services"
+        },
+        {
+          "text": "งานขุดลอกท่อระบายน้ำ",
+          "textEn": "",
+          "url": "#services"
+        },
+        {
+          "text": "งานทำความสะอาดถังบำบัดและถังเก็บน้ำ",
+          "textEn": "",
+          "url": "#services"
+        },
+        {
+          "text": "งานวางระบบถังบำบัด",
+          "textEn": "",
+          "url": "#services"
+        }
+      ]
+    },
+    {
+      "title": "พื้นที่บริการ",
+      "links": [
+        {
+          "text": "อำเภอเมืองภูเก็ต",
+          "textEn": "",
+          "url": "#coverage"
+        },
+        {
+          "text": "อำเภอกะทู้",
+          "textEn": "",
+          "url": "#coverage"
+        },
+        {
+          "text": "อำเภอถลาง",
+          "textEn": "",
+          "url": "#coverage"
+        },
+        {
+          "text": "สาระน่ารู้ (Blog)",
+          "textEn": "Blog & Articles",
+          "url": "/blog/"
+        }
+      ]
+    }
+  ],
+  "contactTitle": "ติดต่อ"
+}

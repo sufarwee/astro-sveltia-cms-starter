@@ -1,0 +1,48 @@
+{
+  "line1Th": "เราไม่ได้แค่ดูดออก",
+  "line1En": "Beyond pumping",
+  "line2Th": "แต่ดูแลให้จบงาน",
+  "line2En": "We finish the job properly",
+  "leadTh": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส ดำเนินงานโดยทีมที่แต่งกายเป็นมาตรฐาน รถและอุปกรณ์มีการดูแลพร้อมใช้งาน เพื่อให้งานหน้างานเป็นระบบ ปลอดภัย และรบกวนพื้นที่ให้น้อยที่สุด",
+  "leadEn": "Our uniformed crew arrives with maintained vehicles and service-ready equipment, working safely and with minimal disruption.",
+  "items": [
+    {
+      "title": "ประเมินก่อนเริ่ม",
+      "titleEn": "Assessment before work",
+      "desc": "แจ้งขอบเขตและราคาให้เข้าใจก่อนทำงาน",
+      "descEn": "Clear scope and pricing before work begins"
+    },
+    {
+      "title": "อุปกรณ์ตรงกับงาน",
+      "titleEn": "Right equipment",
+      "desc": "เลือกเครื่องมือและรถตามสภาพพื้นที่จริง",
+      "descEn": "Equipment and truck selected for the actual site"
+    },
+    {
+      "title": "ส่งมอบพื้นที่สะอาด",
+      "titleEn": "Clean handover",
+      "desc": "ตรวจความเรียบร้อยร่วมกันหลังจบงาน",
+      "descEn": "Final inspection and a clean handover"
+    },
+    {
+      "title": "รับประกันตามประเภทงาน",
+      "titleEn": "Job-specific warranty",
+      "desc": "รับประกันตามประเภทงาน 1–12 เดือน โดยแจ้งเงื่อนไขก่อนเริ่มงาน",
+      "descEn": "1–12 months warranty depending on job scope or agreed terms."
+    }
+  ],
+  "images": [
+    {
+      "image": "/media/jina-standard-1.webp",
+      "alt": "จินา เซอร์วิส บริการแก้ไขท่อตัน งูเหล็ก ดูดส้วม สูบส้วม วางระบบท่อและล้างถังดักไขมันในภูเก็ต"
+    },
+    {
+      "image": "/media/jina-standard-2.webp",
+      "alt": "ห้างหุ้นส่วนจำกัด จินา เซอร์วิส บริการสูบสิ่งปฏิกูล ดูดบ่อเกรอะ ล้างถังบำบัดมาตรฐานสากลทั่วภูเก็ต"
+    },
+    {
+      "image": "/media/jina-standard-3.webp",
+      "alt": "รถดูดส้วมและกำจัดสิ่งปฏิกูลครบวงจร จินา เซอร์วิส ภูเก็ต พร้อมสายดูดยาวเข้าถึงทุกหน้างาน"
+    }
+  ]
+}

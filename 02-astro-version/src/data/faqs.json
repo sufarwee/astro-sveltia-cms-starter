@@ -1,0 +1,54 @@
+{
+  "headingTh": "คำถามที่พบบ่อย",
+  "headingEn": "FAQ",
+  "items": [
+    {
+      "qTh": "ควรสูบส้วมบ่อยแค่ไหน?",
+      "qEn": "How often should a septic tank be pumped?",
+      "aTh": "ขึ้นกับจำนวนผู้ใช้และขนาดบ่อ บ้านทั่วไปควรตรวจระดับทุก 1–3 ปี หากน้ำไหลช้า มีกลิ่น หรือเสียงผิดปกติควรให้ทีมตรวจทันที",
+      "aEn": "It depends on tank size and usage. Most homes should inspect the tank every 1–3 years, or sooner if drains slow down, odours appear or unusual sounds occur."
+    },
+    {
+      "qTh": "รถเข้าซอยแคบได้หรือไม่?",
+      "qEn": "Can your truck access a narrow lane?",
+      "aTh": "แจ้งพิกัด รูปทางเข้า และระยะจากจุดจอดถึงฝาบ่อ ทีมจะประเมินประเภทรถและความยาวสายที่เหมาะสมก่อนนัดหมาย",
+      "aEn": "Send the location, access photos and distance from parking to the tank. We will select the right truck and hose length before confirming the appointment."
+    },
+    {
+      "qTh": "รับดูแลโรงแรมหรือร้านอาหารเป็นรอบหรือไม่?",
+      "qEn": "Do you offer scheduled service for hotels and restaurants?",
+      "aTh": "รับบริการแบบรายครั้งและวางรอบป้องกันสำหรับบ่อเกรอะ บ่อดักไขมัน และท่อระบายน้ำ เพื่อลดความเสี่ยงงานฉุกเฉิน",
+      "aEn": "Yes. We provide one-off visits and preventive schedules for septic tanks, grease traps and drains to reduce emergency callouts."
+    },
+    {
+      "qTh": "ค่าบริการสูบส้วมเริ่มต้นเท่าไร?",
+      "qEn": "How much does septic pumping start from?",
+      "aTh": "งานบ้านพักทั่วไปเริ่มต้น 1,xxx บาท ราคาจริงขึ้นกับปริมาตรบ่อ ระยะสาย ระยะทาง และการเข้าถึง ทีมจะแจ้งราคาก่อนเริ่มงาน",
+      "aEn": "Typical residential service starts from THB 1,xxx. Final pricing depends on tank volume, hose length, travel and site access, and is confirmed before work begins."
+    },
+    {
+      "qTh": "JINA SERVICE ให้บริการพื้นที่ใดบ้าง?",
+      "qEn": "Which areas does JINA SERVICE cover?",
+      "aTh": "ให้บริการทั่วภูเก็ต ครอบคลุมเมืองภูเก็ต ถลาง เชิงทะเล ไม้ขาว ป่าตอง กมลา ราไวย์ และพื้นที่ใกล้เคียง",
+      "aEn": "We serve Phuket Town, Thalang, Cherng Talay, Mai Khao, Patong, Kamala, Rawai and nearby areas across Phuket."
+    },
+    {
+      "qTh": "งานทะลวงท่อตันกับขุดลอกท่อต่างกันอย่างไร?",
+      "qEn": "What is the difference between drain clearing and drain dredging?",
+      "aTh": "ทะลวงท่อตันเน้นเปิดจุดอุดตันเฉพาะหน้า ส่วนขุดลอกท่อเป็นการนำตะกอนและสิ่งสะสมออกจากแนวท่อ ทีมจะประเมินวิธีที่เหมาะกับอาการจริง",
+      "aEn": "Drain clearing targets a specific blockage. Dredging removes accumulated sediment along a drain run. Our team assesses which method fits the symptoms."
+    },
+    {
+      "qTh": "รับล้างหรือติดตั้งถังดักไขมันหรือไม่?",
+      "qEn": "Do you clean and install grease traps?",
+      "aTh": "รับทั้งทำความสะอาดและติดตั้งถังดักไขมันสำหรับบ้าน ร้านอาหาร โรงแรม และครัวเชิงพาณิชย์ โดยประเมินขนาดตามปริมาณการใช้งาน",
+      "aEn": "Yes. We clean and install grease traps for homes, restaurants, hotels and commercial kitchens, sized to actual usage."
+    },
+    {
+      "qTh": "งานมีการรับประกันหรือไม่?",
+      "qEn": "Is the work covered by a warranty?",
+      "aTh": "มีการรับประกันตามประเภทงาน 1–12 เดือน โดยแจ้งเงื่อนไขก่อนเริ่มงาน",
+      "aEn": "1–12 months warranty depending on job scope or agreed terms."
+    }
+  ]
+}

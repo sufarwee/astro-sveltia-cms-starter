@@ -1,0 +1,434 @@
+---
+import pricingData from "../data/pricing.json";
+
+const section = pricingData?.packagesSection;
+const isEnabled = section?.enabled === true;
+---
+
+{isEnabled && (
+  <section class="pricing-packages-section section wrap" id="packages">
+    <div class="section-head">
+      <div>
+        <p class="kicker">SERVICE PACKAGES & RATES</p>
+        <h2>{section.title || "แพ็กเกจราคาและบริการเหมาดูแล"}</h2>
+      </div>
+      <p>{section.subtitle || "เลือกแพ็กเกจที่เหมาะกับประเภทอาคารของคุณ พร้อมการรับประกันและดูแลอย่างต่อเนื่อง"}</p>
+    </div>
+
+    <!-- Package Cards Grid (Google Shopping / E-commerce Product Style) -->
+    {section.packages && section.packages.length > 0 && (
+      <div class="package-cards-grid">
+        {section.packages.map((pkg: any) => (
+          <article class={`package-card ${pkg.popular ? "popular-card" : ""}`}>
+            {pkg.badge && (
+              <div class="pkg-top-badge">
+                <span>{pkg.badge}</span>
+              </div>
+            )}
+            
+            {pkg.image && (
+              <div class="pkg-image-wrapper">
+                <img src={pkg.image} alt={pkg.name} loading="lazy" class="pkg-image" />
+                <div class="pkg-category-tag">{pkg.category}</div>
+              </div>
+            )}
+
+            <div class="pkg-body">
+              <h3 class="package-title">{pkg.name}</h3>
+
+              <!-- Rating Stars -->
+              <div class="pkg-rating-row" aria-label={`คะแนนรีวิว ${pkg.rating} ดาว`}>
+                <span class="stars-gold">★★★★★</span>
+                <span class="rating-val">{pkg.rating}</span>
+                <span class="review-count">({pkg.reviewCount})</span>
+              </div>
+
+              <!-- Price Box -->
+              <div class="package-price-wrap">
+                <small class="price-prefix">ค่าบริการ</small>
+                <span class="package-price">{pkg.price}</span>
+              </div>
+
+              <!-- Features Checklist -->
+              <ul class="package-features">
+                {pkg.features && pkg.features.map((feat: string) => (
+                  <li>
+                    <span class="check-icon">✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="pkg-action-wrap">
+                <a href="#contact" class={`package-cta-btn ${pkg.popular ? "btn-accent" : "btn-outline"}`}>
+                  {pkg.ctaText || "ปรึกษา / ขอราคา"} →
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+
+    <!-- Per-Job Pricing Table with Image Thumbnails -->
+    {section.perJobRates && section.perJobRates.length > 0 && (
+      <div class="per-job-rates-wrap">
+        <div class="table-header-row">
+          <div>
+            <h3 class="table-title">📋 ตารางอัตราค่าบริการแยกตามประเภทงาน (Per-Job Rates)</h3>
+            <p class="table-sub">ประเมินราคาตามปริมาณงานจริง ไม่มีค่าใช้จ่ายแฝง รับประกันผลงาน</p>
+          </div>
+          <span class="badge-direct">✓ แจ้งราคาก่อนเริ่มงาน</span>
+        </div>
+
+        <div class="table-responsive">
+          <table class="rates-table">
+            <thead>
+              <tr>
+                <th>รูปภาพ / งานบริการ</th>
+                <th>อัตราค่าบริการ</th>
+                <th>หน่วยคิดค่าบริการ</th>
+                <th>จุดเด่น</th>
+                <th>จองคิวงาน</th>
+              </tr>
+            </thead>
+            <tbody>
+              {section.perJobRates.map((item: any) => (
+                <tr>
+                  <td class="job-info-cell">
+                    <div class="job-flex">
+                      {item.image && (
+                        <img src={item.image} alt={item.job} class="job-thumb" loading="lazy" />
+                      )}
+                      <div>
+                        <strong class="job-name">{item.job}</strong>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="job-rate">
+                    <span class="price-highlight">{item.rate}</span>
+                  </td>
+                  <td class="job-unit">{item.unit}</td>
+                  <td class="job-badge-cell">
+                    <span class="tag-pill">{item.badge || "มือโปร 24 ชม."}</span>
+                  </td>
+                  <td class="job-action-cell">
+                    <a href="#contact" class="btn-table-cta">ปรึกษาฟรี →</a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {section.footnote && <p class="rates-footnote">{section.footnote}</p>}
+      </div>
+    )}
+  </section>
+)}
+
+<style>
+  .pricing-packages-section {
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .package-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
+  }
+  .package-card {
+    position: relative;
+    background: #111418;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .package-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+  }
+  .popular-card {
+    border-color: #22c55e;
+    box-shadow: 0 8px 30px -8px rgba(34, 197, 94, 0.35);
+  }
+  .pkg-top-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    background: rgba(16, 185, 129, 0.95);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .pkg-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background: #1e242c;
+    overflow: hidden;
+  }
+  .pkg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .package-card:hover .pkg-image {
+    transform: scale(1.05);
+  }
+  .pkg-category-tag {
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+  }
+  .pkg-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .package-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+  .pkg-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .stars-gold {
+    color: #fbbf24;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+  }
+  .rating-val {
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+  .review-count {
+    color: #94a3b8;
+    font-size: 0.8rem;
+  }
+  .package-price-wrap {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .price-prefix {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .package-price {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #22c55e;
+  }
+  .package-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .package-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+  }
+  .check-icon {
+    color: #22c55e;
+    font-weight: 900;
+  }
+  .pkg-action-wrap {
+    margin-top: auto;
+  }
+  .package-cta-btn {
+    display: block;
+    text-align: center;
+    padding: 0.8rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-accent {
+    background: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+  }
+  .btn-accent:hover {
+    background: #15803d;
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.5);
+  }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+  }
+  .btn-outline:hover {
+    border-color: #22c55e;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.05);
+  }
+
+  /* Per-job table */
+  .per-job-rates-wrap {
+    margin-top: 2.5rem;
+    background: #111418;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .table-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .table-title {
+    font-size: 1.25rem;
+    margin: 0 0 0.25rem 0;
+    color: #f8fafc;
+  }
+  .table-sub {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin: 0;
+  }
+  .badge-direct {
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .rates-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  .rates-table th {
+    padding: 0.85rem 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .rates-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+    vertical-align: middle;
+  }
+  .rates-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .job-info-cell {
+    min-width: 260px;
+  }
+  .job-flex {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .job-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .job-name {
+    color: #f8fafc;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .price-highlight {
+    color: #22c55e;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .job-unit {
+    color: #94a3b8;
+    font-size: 0.85rem;
+  }
+  .tag-pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .btn-table-cta {
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn-table-cta:hover {
+    background: #16a34a;
+    color: #ffffff;
+  }
+  .rates-footnote {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .per-job-rates-wrap {
+      padding: 1.25rem;
+    }
+  }
+</style>
